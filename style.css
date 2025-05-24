@@ -1,74 +1,8 @@
-/* General & Reset */
 body {
   margin: 0;
   font-family: 'Segoe UI', 'Arial', sans-serif;
   background: #181828;
   color: #fff;
-}
-
-/* DRAGON BALL RADAR LANDING */
-#radar-landing {
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(160deg, #181828 60%, #2820a5 100%);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  transition: opacity .7s;
-}
-.radar-center {
-  width: 160px; height: 160px; border-radius: 50%;
-  background: radial-gradient(circle, #ffe600 60%, #ffb300 100%);
-  box-shadow: 0 0 65px 25px #ffe60088, 0 0 80px 40px #ffb30044;
-  position: absolute;
-  top: 50%; left: 50%; transform: translate(-50%, -50%);
-}
-.radar-sweep {
-  width: 220px; height: 220px; border-radius: 50%;
-  border: 4px dashed #ffd70088;
-  position: absolute;
-  top: 50%; left: 50%; transform: translate(-50%, -50%);
-  animation: sweep 2.2s linear infinite;
-  z-index: 1;
-}
-@keyframes sweep {
-  to { transform: translate(-50%, -50%) rotate(360deg);}
-}
-.radar-ball {
-  width: 70px; height: 70px;
-  background: radial-gradient(circle, #ffe600 60%, #ffbe00 100%);
-  border-radius: 50%;
-  position: absolute;
-  top: calc(50% - 40px); left: calc(50% + 55px);
-  box-shadow: 0 0 18px 3px #ffd70099, 0 1px 8px #ff9800cc;
-  display: flex; align-items: center; justify-content: center;
-  z-index: 2;
-  opacity: 0;
-  transform: scale(0.4);
-  transition: all 1s cubic-bezier(.4,2,.6,1);
-}
-.radar-ball.found {
-  opacity: 1;
-  transform: scale(1);
-}
-.radar-ball::after {
-  content: "★";
-  font-size: 2.5em;
-  color: #e05200;
-  margin-left: 16px;
-}
-.radar-instructions {
-  margin-top: 320px;
-  font-size: 1.3em;
-  letter-spacing: 0.06em;
-  color: #ffd700;
-  text-shadow: 0 2px 8px #0009;
-}
-
-#main-site {
-  min-height: 100vh;
 }
 
 /* Sidebar */
