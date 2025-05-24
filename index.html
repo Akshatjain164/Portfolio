@@ -7,94 +7,81 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Main Site Content - Shows immediately, no radar landing -->
+  <aside class="anime-sidebar">
+    <nav>
+      <a href="#home" class="sidebar-icon onepiece" title="Home"></a>
+      <a href="#about" class="sidebar-icon naruto" title="About"></a>
+      <a href="#skills" class="sidebar-icon demonslayer" title="Skills"></a>
+      <a href="#projects" class="sidebar-icon pokemon" title="Projects"></a>
+      <a href="#contact" class="sidebar-icon aot" title="Contact"></a>
+    </nav>
+  </aside>
+  <div class="container">
 
-  <!-- Landing Radar Animation (Dragon Ball) -->
-  <div id="radar-landing">
-    <div class="radar-center"></div>
-    <div class="radar-sweep"></div>
-    <div class="radar-ball"></div>
-    <div class="radar-instructions">Finding the Dragon Ball...</div>
-  </div>
-
-  <!-- Main Site Content - Hidden until radar redirects -->
-  <div id="main-site" style="display:none">
-    <aside class="anime-sidebar">
-      <nav>
-        <a href="#home" class="sidebar-icon onepiece" title="Home"></a>
-        <a href="#about" class="sidebar-icon naruto" title="About"></a>
-        <a href="#skills" class="sidebar-icon demonslayer" title="Skills"></a>
-        <a href="#projects" class="sidebar-icon pokemon" title="Projects"></a>
-        <a href="#contact" class="sidebar-icon aot" title="Contact"></a>
-      </nav>
-    </aside>
-    <div class="container">
-
-      <section id="home" class="anime-bg-onepiece">
-        <h1 class="anime-title onepiece-title">Akshat Jain</h1>
-        <p class="anime-intro">Welcome to my anime multiverse portfolio! <span class="emoji">🌊🟠🍜⚔️⚡️</span></p>
-      </section>
-      
-      <section id="about" class="anime-bg-naruto">
-        <h2 class="anime-title naruto-title">About Me</h2>
-        <p>
-          Hi, I'm Akshat! I'm passionate about all things code and anime. I love solving problems, building fun projects, and exploring new worlds—both digital and animated!
-        </p>
-      </section>
-      
-      <section id="skills" class="anime-bg-demonslayer">
-        <h2 class="anime-title demonslayer-title">Skills</h2>
-        <div class="skills-bars">
-          <div class="skill demonslayer-skill">
-            <span>Python</span>
-            <div class="bar"><div style="width:90%"></div></div>
-          </div>
-          <div class="skill deathnote-skill">
-            <span>Problem Solving</span>
-            <div class="bar"><div style="width:88%"></div></div>
-          </div>
-          <div class="skill aot-skill">
-            <span>Git &amp; GitHub</span>
-            <div class="bar"><div style="width:85%"></div></div>
-          </div>
-          <div class="skill pokemon-skill">
-            <span>Responsive Web Design</span>
-            <div class="bar"><div style="width:92%"></div></div>
-          </div>
+    <section id="home" class="anime-bg-onepiece">
+      <h1 class="anime-title onepiece-title">Akshat Jain</h1>
+      <p class="anime-intro">Welcome to my anime multiverse portfolio! <span class="emoji">🌊🟠🍜⚔️⚡️</span></p>
+    </section>
+    
+    <section id="about" class="anime-bg-naruto">
+      <h2 class="anime-title naruto-title">About Me</h2>
+      <p>
+        Hi, I'm Akshat! I'm passionate about all things code and anime. I love solving problems, building fun projects, and exploring new worlds—both digital and animated!
+      </p>
+    </section>
+    
+    <section id="skills" class="anime-bg-demonslayer">
+      <h2 class="anime-title demonslayer-title">Skills</h2>
+      <div class="skills-bars">
+        <div class="skill demonslayer-skill">
+          <span>Python</span>
+          <div class="bar"><div style="width:90%"></div></div>
         </div>
-      </section>
-
-      <section id="projects" class="anime-bg-dragonball">
-        <h2 class="anime-title dragonball-title">Projects</h2>
-        <div class="projects-cards">
-          <div class="project-card pokemon-card">
-            <strong>Tic Tac Toe (Pokémon)</strong>
-            <p>Play classic Tic Tac Toe with a Pokémon twist!</p>
-          </div>
-          <div class="project-card onepiece-card">
-            <strong>Weather App (One Piece)</strong>
-            <p>Get weather updates from around the Grand Line. (API powered)</p>
-          </div>
-          <div class="project-card naruto-card">
-            <strong>Snake Game (Naruto)</strong>
-            <p>Eat, grow, and dodge in a quick ninja-style snake game.</p>
-          </div>
+        <div class="skill deathnote-skill">
+          <span>Problem Solving</span>
+          <div class="bar"><div style="width:88%"></div></div>
         </div>
-      </section>
+        <div class="skill aot-skill">
+          <span>Git &amp; GitHub</span>
+          <div class="bar"><div style="width:85%"></div></div>
+        </div>
+        <div class="skill pokemon-skill">
+          <span>Responsive Web Design</span>
+          <div class="bar"><div style="width:92%"></div></div>
+        </div>
+      </div>
+    </section>
 
-      <section id="contact" class="anime-bg-pokemon">
-        <h2 class="anime-title pokemon-title">Contact</h2>
-        <p>Want to connect or collaborate? Throw me a Pokéball!</p>
-        <a class="poke-email-btn" href="mailto:ajain04072007@gmail.com">
-          <span class="pokeball-icon"></span> Email Me
-        </a>
-      </section>
-    </div>
-    <footer>
-      <p>&copy; 2025 Akshat Jain. All rights reserved.</p>
-    </footer>
+    <section id="projects" class="anime-bg-dragonball">
+      <h2 class="anime-title dragonball-title">Projects</h2>
+      <div class="projects-cards">
+        <div class="project-card pokemon-card">
+          <strong>Tic Tac Toe (Pokémon)</strong>
+          <p>Play classic Tic Tac Toe with a Pokémon twist!</p>
+        </div>
+        <div class="project-card onepiece-card">
+          <strong>Weather App (One Piece)</strong>
+          <p>Get weather updates from around the Grand Line. (API powered)</p>
+        </div>
+        <div class="project-card naruto-card">
+          <strong>Snake Game (Naruto)</strong>
+          <p>Eat, grow, and dodge in a quick ninja-style snake game.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="anime-bg-pokemon">
+      <h2 class="anime-title pokemon-title">Contact</h2>
+      <p>Want to connect or collaborate? Throw me a Pokéball!</p>
+      <a class="poke-email-btn" href="mailto:ajain04072007@gmail.com">
+        <span class="pokeball-icon"></span> Email Me
+      </a>
+    </section>
   </div>
-
-  <audio id="radar-sound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_115b9b4c1d.mp3"></audio>
+  <footer>
+    <p>&copy; 2025 Akshat Jain. All rights reserved.</p>
+  </footer>
   <script src="script.js"></script>
 </body>
 </html>
