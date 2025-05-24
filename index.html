@@ -38,20 +38,12 @@
             <h2>Skills</h2>
             <div class="skills-bars">
                 <div class="skill">
-                    <span>JavaScript</span>
-                    <div class="bar"><div style="width:90%"></div></div>
-                </div>
-                <div class="skill">
                     <span>Python</span>
                     <div class="bar"><div style="width:85%"></div></div>
                 </div>
                 <div class="skill">
                     <span>HTML5 & CSS3</span>
                     <div class="bar"><div style="width:95%"></div></div>
-                </div>
-                <div class="skill">
-                    <span>React / Node.js</span>
-                    <div class="bar"><div style="width:80%"></div></div>
                 </div>
                 <div class="skill">
                     <span>Git & GitHub</span>
@@ -73,21 +65,13 @@
                             <strong>Personal Portfolio</strong>
                             <p>A modern portfolio built with HTML, CSS, and JavaScript.</p>
                         </div>
-                        <div class="card-back">
-                            <p>This website! Responsive, animated, and open source.</p>
-                            <a href="#">View Code</a>
-                        </div>
                     </div>
                 </div>
                 <div class="project-card">
                     <div class="card-inner">
                         <div class="card-front">
                             <strong>Weather App</strong>
-                            <p>A weather app using OpenWeather API.</p>
-                        </div>
-                        <div class="card-back">
-                            <p>Real-time weather updates with beautiful UI.</p>
-                            <a href="#">View Project</a>
+                            <p>Real-time weather updates with beautiful UI.<br><a href="#">View Project</a></p>
                         </div>
                     </div>
                 </div>
@@ -96,10 +80,6 @@
                         <div class="card-front">
                             <strong>To-Do List</strong>
                             <p>Minimalist to-do list with local storage support.</p>
-                        </div>
-                        <div class="card-back">
-                            <p>Organize tasks efficiently and simply.</p>
-                            <a href="#">Try It</a>
                         </div>
                     </div>
                 </div>
@@ -111,7 +91,7 @@
             <p>
                 Want to connect or collaborate? Reach out via email or social platforms!
             </p>
-            <a class="button" href="mailto:youremail@example.com">Email Me</a>
+            <a class="button gradient-btn" href="mailto:ajain04072007@gmail.com">Email Me</a>
         </section>
 
         <footer>
@@ -120,7 +100,9 @@
     </div>
 
     <div class="bg-gradient-cursor"></div>
-    <div id="dragonball-radar">
+
+    <!-- Mini Dragon Radar Index -->
+    <div id="dragonball-radar" tabindex="0" aria-label="Open site index">
         <div class="radar-outer">
             <div class="radar-inner"></div>
             <div class="radar-sweep"></div>
@@ -129,7 +111,16 @@
             <div class="radar-dot" style="top:68%;left:29%"></div>
         </div>
         <span class="radar-label">DRAGON RADAR</span>
+        <nav class="radar-index">
+            <ul>
+                <li><a href="#about" class="radar-link">About</a></li>
+                <li><a href="#skills" class="radar-link">Skills</a></li>
+                <li><a href="#projects" class="radar-link">Projects</a></li>
+                <li><a href="#contact" class="radar-link">Contact</a></li>
+            </ul>
+        </nav>
     </div>
+
     <audio id="easter-egg-sound" src="https://cdn.pixabay.com/audio/2022/11/16/audio_12d184c8e7.mp3"></audio>
     <script src="script.js"></script>
 </body>
