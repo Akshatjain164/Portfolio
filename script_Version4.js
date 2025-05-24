@@ -40,23 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => { bar.style.width = width; }, 400);
   });
 
-  // Project card tilt effect
-  document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width/2;
-      const y = e.clientY - rect.top - rect.height/2;
-      card.querySelector('.card-inner').style.transform =
-        `rotateY(${x/12}deg) rotateX(${-y/16}deg)`;
-    });
-    card.addEventListener('mouseleave', e => {
-      card.querySelector('.card-inner').style.transform = '';
-    });
-    card.addEventListener('click', () => {
-      card.querySelector('.card-inner').classList.toggle('flipped');
-    });
-  });
-
   // Theme toggle with Dragon Ball animation
   const themeBtn = document.getElementById('toggle-theme');
   themeBtn.addEventListener('click', () => {
@@ -74,8 +57,39 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Dragon Ball Radar animation - flash on hover
+  // Dragon Ball Radar Mini Index
   const radar = document.getElementById('dragonball-radar');
+  radar.addEventListener('click', (e) => {
+    radar.classList.toggle('open');
+    e.stopPropagation();
+  });
+  radar.addEventListener('keydown', (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      radar.classList.toggle('open');
+      e.preventDefault();
+    }
+  });
+  // Close radar index if click outside
+  document.addEventListener('click', (e) => {
+    if (!radar.contains(e.target)) {
+      radar.classList.remove('open');
+    }
+  });
+
+  // Radar nav links: smooth scroll and close menu on click
+  document.querySelectorAll('.radar-index a.radar-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').replace('#', '');
+      const target = document.getElementById(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+      radar.classList.remove('open');
+    });
+  });
+
+  // Dragon Ball Radar animation - flash on hover
   radar.addEventListener('mouseenter', () => {
     radar.querySelector('.radar-inner').style.background = "#39ff1490";
     radar.querySelector('.radar-inner').animate([
@@ -86,16 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   radar.addEventListener('mouseleave', () => {
     radar.querySelector('.radar-inner').style.background = "#1f4736cc";
-  });
-  radar.addEventListener('click', () => {
-    // Animate the radar dots
-    radar.querySelectorAll('.radar-dot').forEach(dot => {
-      dot.animate([
-        { transform: "scale(1)", opacity: 1 },
-        { transform: "scale(1.7)", opacity: 0.6 },
-        { transform: "scale(1)", opacity: 1 }
-      ], { duration: 700, iterations: 1 });
-    });
   });
 
   // Konami Code Easter Egg
