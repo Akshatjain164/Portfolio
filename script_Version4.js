@@ -1,4 +1,4 @@
-// Smooth scroll for sidebar nav
+ // Smooth scroll for sidebar nav
 document.querySelectorAll('.sidebar nav a').forEach(link => {
   link.addEventListener('click', function(e) {
     e.preventDefault();
