@@ -1,21 +1,13 @@
-// Animated skill bars
-window.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => {
-    document.querySelectorAll('.bar > div').forEach(bar => {
-      let width = bar.style.width;
-      bar.style.width = '0';
-      setTimeout(() => { bar.style.width = width; }, 500);
-    });
-  }, 400);
-
-  // Sidebar scroll
-  document.querySelectorAll('.sidebar-icon').forEach(icon => {
-    icon.addEventListener('click', e => {
-      e.preventDefault();
-      const href = icon.getAttribute('href');
-      if (href && document.querySelector(href)) {
-        document.querySelector(href).scrollIntoView({behavior: "smooth"});
-      }
-    });
+// Smooth scroll for sidebar nav
+document.querySelectorAll('.sidebar nav a').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+    // Optional: update active class
+    document.querySelectorAll('.sidebar nav a').forEach(a => a.classList.remove('active'));
+    this.classList.add('active');
   });
 });
