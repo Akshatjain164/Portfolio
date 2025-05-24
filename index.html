@@ -3,85 +3,74 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Akshat's Anime Portfolio</title>
+  <title>Akshat Jain | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/your-github-id?v=4" />
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
 </head>
 <body>
-  <!-- Main Site Content - Shows immediately, no radar landing -->
-  <aside class="anime-sidebar">
+  <aside class="sidebar">
+    <div class="avatar-container">
+      <img src="https://avatars.githubusercontent.com/u/your-github-id?v=4" alt="Akshat Jain" class="avatar"/>
+      <h1 class="name">Akshat Jain</h1>
+      <p class="subtitle">Aspiring Developer & Problem Solver</p>
+    </div>
     <nav>
-      <a href="#home" class="sidebar-icon onepiece" title="Home"></a>
-      <a href="#about" class="sidebar-icon naruto" title="About"></a>
-      <a href="#skills" class="sidebar-icon demonslayer" title="Skills"></a>
-      <a href="#projects" class="sidebar-icon pokemon" title="Projects"></a>
-      <a href="#contact" class="sidebar-icon aot" title="Contact"></a>
+      <a href="#about"><i class="fa-solid fa-user"></i> <span>About</span></a>
+      <a href="#skills"><i class="fa-solid fa-lightbulb"></i> <span>Skills</span></a>
+      <a href="#projects"><i class="fa-solid fa-layer-group"></i> <span>Projects</span></a>
+      <a href="#contact"><i class="fa-solid fa-envelope"></i> <span>Contact</span></a>
     </nav>
+    <div class="sidebar-socials">
+      <a href="https://github.com/Akshatjain164" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/your-profile" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <!-- add more socials if needed -->
+    </div>
   </aside>
-  <div class="container">
-
-    <section id="home" class="anime-bg-onepiece">
-      <h1 class="anime-title onepiece-title">Akshat Jain</h1>
-      <p class="anime-intro">Welcome to my anime multiverse portfolio! <span class="emoji">🌊🟠🍜⚔️⚡️</span></p>
+  <main>
+    <section id="about" class="section">
+      <h2>About</h2>
+      <p>Hi, I'm Akshat! I love building digital things and solving problems with code. I'm passionate about web development, open source, and learning new skills. Welcome to my portfolio!</p>
     </section>
-    
-    <section id="about" class="anime-bg-naruto">
-      <h2 class="anime-title naruto-title">About Me</h2>
-      <p>
-        Hi, I'm Akshat! I'm passionate about all things code and anime. I love solving problems, building fun projects, and exploring new worlds—both digital and animated!
-      </p>
+    <section id="skills" class="section">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li><i class="fa-brands fa-python"></i> Python</li>
+        <li><i class="fa-solid fa-brain"></i> Problem Solving</li>
+        <li><i class="fa-brands fa-git-alt"></i> Git & GitHub</li>
+        <li><i class="fa-solid fa-mobile-screen-button"></i> Responsive Web Design</li>
+      </ul>
     </section>
-    
-    <section id="skills" class="anime-bg-demonslayer">
-      <h2 class="anime-title demonslayer-title">Skills</h2>
-      <div class="skills-bars">
-        <div class="skill demonslayer-skill">
-          <span>Python</span>
-          <div class="bar"><div style="width:90%"></div></div>
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Tic Tac Toe</h3>
+          <p>Play classic Tic Tac Toe in a clean web interface.</p>
+          <a href="#" target="_blank">Demo</a>
         </div>
-        <div class="skill deathnote-skill">
-          <span>Problem Solving</span>
-          <div class="bar"><div style="width:88%"></div></div>
+        <div class="project-card">
+          <h3>Weather App</h3>
+          <p>Get real-time weather updates using an open API.</p>
+          <a href="#" target="_blank">Demo</a>
         </div>
-        <div class="skill aot-skill">
-          <span>Git &amp; GitHub</span>
-          <div class="bar"><div style="width:85%"></div></div>
-        </div>
-        <div class="skill pokemon-skill">
-          <span>Responsive Web Design</span>
-          <div class="bar"><div style="width:92%"></div></div>
+        <div class="project-card">
+          <h3>Snake Game</h3>
+          <p>A modern take on the retro Snake game, built for the browser.</p>
+          <a href="#" target="_blank">Demo</a>
         </div>
       </div>
     </section>
-
-    <section id="projects" class="anime-bg-dragonball">
-      <h2 class="anime-title dragonball-title">Projects</h2>
-      <div class="projects-cards">
-        <div class="project-card pokemon-card">
-          <strong>Tic Tac Toe (Pokémon)</strong>
-          <p>Play classic Tic Tac Toe with a Pokémon twist!</p>
-        </div>
-        <div class="project-card onepiece-card">
-          <strong>Weather App (One Piece)</strong>
-          <p>Get weather updates from around the Grand Line. (API powered)</p>
-        </div>
-        <div class="project-card naruto-card">
-          <strong>Snake Game (Naruto)</strong>
-          <p>Eat, grow, and dodge in a quick ninja-style snake game.</p>
-        </div>
-      </div>
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p>Want to connect or collaborate? Email me or reach out on social media!</p>
+      <a class="email-btn" href="mailto:ajain04072007@gmail.com"><i class="fa-solid fa-envelope"></i> Email Me</a>
     </section>
-
-    <section id="contact" class="anime-bg-pokemon">
-      <h2 class="anime-title pokemon-title">Contact</h2>
-      <p>Want to connect or collaborate? Throw me a Pokéball!</p>
-      <a class="poke-email-btn" href="mailto:ajain04072007@gmail.com">
-        <span class="pokeball-icon"></span> Email Me
-      </a>
-    </section>
-  </div>
-  <footer>
-    <p>&copy; 2025 Akshat Jain. All rights reserved.</p>
-  </footer>
+    <footer>
+      <p>&copy; 2025 Akshat Jain. All rights reserved.</p>
+    </footer>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>
