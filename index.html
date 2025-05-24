@@ -7,15 +7,24 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- Gradient background follows cursor (handled by JS) -->
+    <!-- Dragon Ball GIF background handled by CSS -->
     <div class="container">
         <header>
+            <div class="avatar-aura-container">
+                <img class="avatar" src="https://avatars.githubusercontent.com/u/your-github-id?v=4" alt="Akshat Jain" />
+                <div class="aura"></div>
+            </div>
             <h1>Akshat Jain</h1>
-            <p class="subtitle">Aspiring Software Developer & Open Source Enthusiast</p>
+            <p class="subtitle">
+                <span id="typing-intro"></span>
+            </p>
             <div class="socials">
                 <a href="https://github.com/Akshatjain164" target="_blank" aria-label="GitHub">GitHub</a>
                 <a href="https://linkedin.com/in/your-profile" target="_blank" aria-label="LinkedIn">LinkedIn</a>
             </div>
+            <button id="toggle-theme" aria-label="Toggle Dark/Light Mode">
+                <span class="dragonball"></span>
+            </button>
         </header>
 
         <section id="about">
@@ -27,33 +36,74 @@
 
         <section id="skills">
             <h2>Skills</h2>
-            <ul class="skills-list">
-                <li>JavaScript / TypeScript</li>
-                <li>Python</li>
-                <li>HTML5 & CSS3</li>
-                <li>React / Node.js</li>
-                <li>Git & GitHub</li>
-                <li>Responsive Web Design</li>
-                <li>Problem Solving</li>
-            </ul>
+            <div class="skills-bars">
+                <div class="skill">
+                    <span>JavaScript</span>
+                    <div class="bar"><div style="width:90%"></div></div>
+                </div>
+                <div class="skill">
+                    <span>Python</span>
+                    <div class="bar"><div style="width:85%"></div></div>
+                </div>
+                <div class="skill">
+                    <span>HTML5 & CSS3</span>
+                    <div class="bar"><div style="width:95%"></div></div>
+                </div>
+                <div class="skill">
+                    <span>React / Node.js</span>
+                    <div class="bar"><div style="width:80%"></div></div>
+                </div>
+                <div class="skill">
+                    <span>Git & GitHub</span>
+                    <div class="bar"><div style="width:88%"></div></div>
+                </div>
+                <div class="skill">
+                    <span>Responsive Web Design</span>
+                    <div class="bar"><div style="width:92%"></div></div>
+                </div>
+            </div>
         </section>
 
         <section id="projects">
             <h2>Projects</h2>
-            <ul class="projects-list">
-                <li>
-                    <strong>Personal Portfolio</strong>
-                    <span> — This website! A modern portfolio built with HTML, CSS, and JavaScript.</span>
-                </li>
-                <li>
-                    <strong>Weather App</strong>
-                    <span> — A simple weather app using OpenWeather API. <a href="#">View Project</a></span>
-                </li>
-                <li>
-                    <strong>To-Do List</strong>
-                    <span> — Minimalist to-do list with local storage support. <a href="#">View Project</a></span>
-                </li>
-            </ul>
+            <div class="projects-cards">
+                <div class="project-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <strong>Personal Portfolio</strong>
+                            <p>A modern portfolio built with HTML, CSS, and JavaScript.</p>
+                        </div>
+                        <div class="card-back">
+                            <p>This website! Responsive, animated, and open source.</p>
+                            <a href="#">View Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <strong>Weather App</strong>
+                            <p>A weather app using OpenWeather API.</p>
+                        </div>
+                        <div class="card-back">
+                            <p>Real-time weather updates with beautiful UI.</p>
+                            <a href="#">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <strong>To-Do List</strong>
+                            <p>Minimalist to-do list with local storage support.</p>
+                        </div>
+                        <div class="card-back">
+                            <p>Organize tasks efficiently and simply.</p>
+                            <a href="#">Try It</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="contact">
@@ -68,6 +118,19 @@
             <p>&copy; 2025 Akshat Jain. All rights reserved.</p>
         </footer>
     </div>
+
+    <div class="bg-gradient-cursor"></div>
+    <div id="dragonball-radar">
+        <div class="radar-outer">
+            <div class="radar-inner"></div>
+            <div class="radar-sweep"></div>
+            <div class="radar-dot" style="top:55%;left:63%"></div>
+            <div class="radar-dot" style="top:40%;left:40%"></div>
+            <div class="radar-dot" style="top:68%;left:29%"></div>
+        </div>
+        <span class="radar-label">DRAGON RADAR</span>
+    </div>
+    <audio id="easter-egg-sound" src="https://cdn.pixabay.com/audio/2022/11/16/audio_12d184c8e7.mp3"></audio>
     <script src="script.js"></script>
 </body>
 </html>
