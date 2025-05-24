@@ -1,179 +1,157 @@
-:root {
-  --main-bg: #181828;
-  --card-bg: rgba(30, 30, 48, 0.95);
-  --accent: #8e2de2;
-  --accent2: #4a00e0;
-  --gradient: linear-gradient(120deg, #8e2de2, #4a00e0, #00c3ff, #ffff1c);
-  --text-light: #f3f3f3;
-  --text-dark: #222;
-}
-
-/* Dragon Ball GIF background */
-body::before {
-  content: "";
-  position: fixed;
-  z-index: -2;
-  top: 0; left: 0; width: 100vw; height: 100vh;
-  background: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExM25iNjV5cWUxa2h6cGo4bDQ5NjJ3MnhvcXA0b2QyMjhteTZkemM2biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/aAbax5anloMNk6TSP9/giphy.gif') center center/cover no-repeat;
-  opacity: 0.23;
-  pointer-events: none;
-  transition: opacity 0.3s;
-}
-
+/* General & Reset */
 body {
-  min-height: 100vh;
   margin: 0;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  color: var(--text-light);
-  background: var(--main-bg);
-  overflow-x: hidden;
-  transition: background 0.3s, color 0.3s;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  background: #181828;
+  color: #fff;
 }
 
-/* Gradient cursor effect */
-.bg-gradient-cursor {
+/* DRAGON BALL RADAR LANDING */
+#radar-landing {
   position: fixed;
-  top: 0; left: 0; width: 100vw; height: 100vh;
-  pointer-events: none;
-  z-index: -1;
-  background: radial-gradient(circle at var(--x, 50vw) var(--y, 50vh), #8e2de2aa 0%, #4a00e0aa 40%, transparent 80%);
-  opacity: 0.5;
-  will-change: background;
-  transition: opacity 0.4s;
-}
-
-.container {
-  position: relative;
-  z-index: 1;
-  max-width: 750px;
-  margin: 3rem auto 2rem auto;
-  background: var(--card-bg);
-  border-radius: 28px;
-  box-shadow: 0 6px 40px 0 #000b, 0 1.5px 10px 0 #8e2de244;
-  padding: 2.5rem 2rem 2rem 2rem;
-  backdrop-filter: blur(2.5px);
-}
-
-@media (max-width: 850px) {
-  .container { padding: 1.3rem 0.4rem; margin: 1rem; }
-  h1 { font-size: 2rem; }
-  .projects-cards { flex-direction: column; align-items: center; }
-  .project-card { width: 94vw; max-width: 360px; margin-bottom: 1em;}
-}
-
-.avatar-aura-container {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 1.3rem;
-}
-.avatar {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  border: 4px solid #fff;
-  z-index: 1;
-  background: #fff;
-  object-fit: cover;
-  box-shadow: 0 4px 32px #0006;
-}
-.aura {
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 150px; height: 150px;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-  box-shadow:
-    0 0 36px 10px #ffe60066,
-    0 0 60px 20px #ffb30022;
-  animation: aura-pulse 2.5s infinite alternate;
-  opacity: 0.38;
-}
-@keyframes aura-pulse {
-  0% { box-shadow: 0 0 36px 10px #ffe60066, 0 0 60px 20px #ffb30022; }
-  100% { box-shadow: 0 0 60px 18px #ffe60099, 0 0 120px 44px #ffb30044; }
-}
-
-h1 {
-  font-size: 2.5rem;
-  margin: 0 0 0.4rem 0;
-  font-weight: 700;
-  background: linear-gradient(90deg, #ffd700 40%, #ff9800 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: #fff;
-  text-shadow: 0 2px 5px #000a;
-  letter-spacing: 0.01em;
-}
-
-.subtitle {
-  min-height: 2.2rem;
-  font-size: 1.33rem;
-  line-height: 1.6;
-  color: #ffd700;
-  letter-spacing: 0.03em;
-  font-weight: 600;
-}
-
-.socials {
-  margin-bottom: 0.8em;
-  margin-top: 0.7em;
-}
-.socials a {
-  margin: 0 0.8em;
-  color: #fff;
-  font-weight: bold;
-  text-decoration: none;
-  opacity: 0.88;
-  font-size: 1.08em;
-  letter-spacing: 0.03em;
-  transition: color 0.2s, opacity 0.2s;
-  padding: 0.2em 0.5em;
-  border-radius: 6px;
-}
-.socials a:hover {
-  color: #ffd700;
-  opacity: 1;
-  background: rgba(142, 45, 226, 0.11);
-  text-shadow: 0 2px 8px #ffd70055;
-}
-
-#toggle-theme {
-  background: none;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  margin-top: 1.1rem;
-  margin-bottom: 0.7rem;
+  inset: 0;
+  background: linear-gradient(160deg, #181828 60%, #2820a5 100%);
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  transition: opacity .7s;
 }
-.dragonball {
-  width: 38px; height: 38px;
-  background: radial-gradient(circle, #ffe000 70%, #ffbe00 100%);
-  border-radius: 50%;
-  box-shadow: 0 0 18px 6px #ffef3b88, 0 1px 8px #ff9800cc;
-  position: relative;
-  transition: background 0.3s;
-}
-.dragonball::after {
-  content: "★";
+.radar-center {
+  width: 160px; height: 160px; border-radius: 50%;
+  background: radial-gradient(circle, #ffe600 60%, #ffb300 100%);
+  box-shadow: 0 0 65px 25px #ffe60088, 0 0 80px 40px #ffb30044;
   position: absolute;
-  top: 8px; left: 10px;
-  font-size: 20px;
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+}
+.radar-sweep {
+  width: 220px; height: 220px; border-radius: 50%;
+  border: 4px dashed #ffd70088;
+  position: absolute;
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  animation: sweep 2.2s linear infinite;
+  z-index: 1;
+}
+@keyframes sweep {
+  to { transform: translate(-50%, -50%) rotate(360deg);}
+}
+.radar-ball {
+  width: 70px; height: 70px;
+  background: radial-gradient(circle, #ffe600 60%, #ffbe00 100%);
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - 40px); left: calc(50% + 55px);
+  box-shadow: 0 0 18px 3px #ffd70099, 0 1px 8px #ff9800cc;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2;
+  opacity: 0;
+  transform: scale(0.4);
+  transition: all 1s cubic-bezier(.4,2,.6,1);
+}
+.radar-ball.found {
+  opacity: 1;
+  transform: scale(1);
+}
+.radar-ball::after {
+  content: "★";
+  font-size: 2.5em;
   color: #e05200;
-  filter: drop-shadow(0 0 2px #ff9000);
+  margin-left: 16px;
+}
+.radar-instructions {
+  margin-top: 320px;
+  font-size: 1.3em;
+  letter-spacing: 0.06em;
+  color: #ffd700;
+  text-shadow: 0 2px 8px #0009;
 }
 
-/* Typing Effect */
-#typing-intro {
-  border-right: 2px solid #ffd700;
-  white-space: nowrap;
-  overflow: hidden;
+#main-site {
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.anime-sidebar {
+  position: fixed;
+  left: 0; top: 0; height: 100vh; width: 68px;
+  background: #170c25cc;
+  display: flex; flex-direction: column; align-items: center;
+  box-shadow: 2px 0 18px #000a;
+  z-index: 10;
+}
+.anime-sidebar nav {
+  margin-top: 2.5em;
+  display: flex; flex-direction: column; gap: 2em;
+}
+.sidebar-icon {
+  width: 46px; height: 46px; border-radius: 12px;
+  background: #fff;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 2px 12px #0004;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 65% 65%;
+  transition: background 0.2s, box-shadow 0.22s;
+}
+.sidebar-icon.onepiece { background: #fff url('https://static.thenounproject.com/png/4242933-200.png') center/70% no-repeat; }
+.sidebar-icon.naruto { background: #fff url('https://static.thenounproject.com/png/3572691-200.png') center/80% no-repeat; }
+.sidebar-icon.demonslayer { background: #fff url('https://static.thenounproject.com/png/4412246-200.png') center/80% no-repeat; }
+.sidebar-icon.pokemon { background: #fff url('https://static.thenounproject.com/png/4755255-200.png') center/80% no-repeat; }
+.sidebar-icon.aot { background: #fff url('https://static.thenounproject.com/png/5414084-200.png') center/70% no-repeat; }
+.sidebar-icon:hover { box-shadow: 0 8px 28px #ffd70077; background-color: #ffd70022; }
+
+/* Container */
+.container {
+  margin-left: 90px;
+  padding: 2.5em 2em 1em 2em;
+  max-width: 900px;
+  background: transparent;
+}
+
+/* Anime section backgrounds */
+.anime-bg-onepiece { background: linear-gradient(145deg, #36a4f7 85%, #ffe066 100%); border-radius: 20px; box-shadow: 0 2px 18px #1274de11; }
+.anime-bg-naruto { background: linear-gradient(145deg, #ff9800 75%, #fdc37c 100%); border-radius: 20px; box-shadow: 0 2px 18px #ff980022; }
+.anime-bg-demonslayer { background: repeating-linear-gradient(135deg, #2e7e5c, #2e7e5c 18px, #d9b4c1 19px, #d9b4c1 36px); border-radius: 20px; }
+.anime-bg-dragonball { background: linear-gradient(100deg, #fca311 60%, #ffd700 100%); border-radius: 20px; box-shadow: 0 2px 18px #ffd70022; }
+.anime-bg-pokemon { background: linear-gradient(90deg, #f53444 50%, #ffec4b 100%); border-radius: 20px; box-shadow: 0 2px 18px #ffec4b44; }
+
+section {
+  margin-bottom: 2em;
+  padding: 2.2em 2em 2em 2em;
+  box-shadow: 0 4px 24px #00000013;
+}
+
+/* Animated titles */
+.anime-title {
+  font-family: 'Trebuchet MS', Impact, 'Arial Black', Arial, sans-serif;
+  font-size: 2.2em;
+  margin-bottom: 0.3em;
+  letter-spacing: 0.06em;
   display: inline-block;
-  min-width: 110px;
+  opacity: 0;
+  transform: translateY(30px) scale(.96);
+  animation: anime-title-in 0.9s forwards;
+}
+@keyframes anime-title-in {
+  to { opacity: 1; transform: translateY(0) scale(1);}
+}
+.onepiece-title { color: #ffe066; text-shadow: 2px 2px 0 #1274de, 0 3px 8px #fff3; }
+.naruto-title { color: #ff9800; text-shadow: 2px 2px 0 #6d3d00, 0 3px 8px #0003; }
+.demonslayer-title { color: #2e7e5c; text-shadow: 2px 2px 0 #d9b4c1, 0 3px 8px #fff3; }
+.dragonball-title { color: #ffd700; text-shadow: 2px 2px 0 #fca311, 0 3px 8px #fff3; }
+.pokemon-title { color: #ffec4b; text-shadow: 2px 2px 0 #f53444, 0 3px 8px #fff3; }
+
+/* Section animated intro */
+.anime-intro {
+  font-size: 1.2em;
+  margin-bottom: 1.1em;
+  animation: fadeIn 0.9s 0.5s backwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* Skills Bars */
@@ -181,14 +159,14 @@ h1 {
   margin-top: 1.2em;
 }
 .skill {
-  margin-bottom: 1.15em;
+  margin-bottom: 1.45em;
 }
 .skill span {
   font-weight: 600;
+  font-size: 1.09em;
   color: #fff;
   margin-bottom: 0.2em;
   display: block;
-  text-shadow: 0 1px 5px #0008;
 }
 .bar {
   background: #222;
@@ -199,13 +177,15 @@ h1 {
 }
 .bar > div {
   height: 100%;
-  background: linear-gradient(90deg, #fca311 0%, #ffd700 100%);
   border-radius: 12px;
-  transition: width 1.5s cubic-bezier(.65,.05,.36,1);
-  box-shadow: 0 2px 8px #ffd70044;
+  transition: width 2s cubic-bezier(.65,.05,.36,1);
 }
+.demonslayer-skill .bar > div { background: linear-gradient(90deg, #2e7e5c 0%, #d9b4c1 100%);}
+.deathnote-skill .bar > div { background: linear-gradient(90deg, #222 0%, #b71c1c 100%);}
+.aot-skill .bar > div { background: linear-gradient(90deg, #536d44 0%, #c2b280 100%);}
+.pokemon-skill .bar > div { background: linear-gradient(90deg, #f53444 0%, #ffec4b 100%);}
 
-/* Project Cards Section */
+/* Project Cards */
 .projects-cards {
   display: flex;
   gap: 2rem;
@@ -215,79 +195,70 @@ h1 {
   margin-bottom: 1.2em;
 }
 .project-card {
-  background: rgba(55, 50, 80, 0.46);
   border-radius: 20px;
   box-shadow: 0 2px 14px #0002;
   min-width: 220px;
-  max-width: 280px;
+  max-width: 250px;
   flex: 1 1 220px;
-  padding: 1.2em 1.6em;
+  padding: 1.2em 1em;
   margin-bottom: 1em;
   transition: transform 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; flex-direction: column;
+  align-items: flex-start;
+  background: #fff2;
+  border: 2.5px solid transparent;
   cursor: pointer;
   position: relative;
 }
-.project-card:hover {
-  transform: translateY(-6px) scale(1.04);
-  box-shadow: 0 8px 32px #4a00e044, 0 1.5px 14px #ffd70022;
-  background: rgba(110, 80, 180, 0.19);
-}
 .project-card strong {
-  font-size: 1.11em;
+  font-size: 1.14em;
   margin-bottom: 0.4em;
-  color: #ffd700;
-  text-shadow: 0 1px 6px #0006;
-}
-.project-card .card-front p, .project-card .card-front a {
-  color: #e6e6e6;
-  font-size: 1em;
-  margin: 0.2em 0 0 0;
-}
-.project-card .card-front a {
   display: block;
-  margin-top: 0.6em;
-  color: #ffd700;
-  text-decoration: underline;
-  font-weight: 500;
-  font-size: 1em;
 }
-.project-card .card-front a:hover {
-  color: #8e2de2;
-}
+.pokemon-card { border-color: #ffec4b; background: #fff9; }
+.onepiece-card { border-color: #1274de; background: #e8f6ff; }
+.naruto-card { border-color: #ff9800; background: #fff8ec; }
+.project-card:hover { transform: translateY(-6px) scale(1.04); }
 
-/* Contact Section */
-.gradient-btn {
-  display: inline-block;
+/* Contact Pokeball Button */
+.poke-email-btn {
+  display: inline-flex;
+  align-items: center;
   margin-top: 1.5rem;
   padding: 0.8em 2.5em;
   font-size: 1.1rem;
   font-weight: 600;
-  color: #fff;
-  background: linear-gradient(90deg, #8e2de2 0%, #4a00e0 60%, #ffd700 100%);
+  color: #222;
+  background: linear-gradient(90deg, #ffec4b 70%, #f53444 100%);
   border: none;
   border-radius: 32px;
   cursor: pointer;
-  box-shadow: 0 4px 18px #8e2de244, 0 1.5px 8px #ffd70022;
+  box-shadow: 0 4px 18px #ffd70044, 0 1.5px 8px #f5344422;
   transition: transform 0.13s, box-shadow 0.15s, background 0.2s;
-  text-shadow: 0 1px 6px #0006;
+  text-shadow: 0 1px 6px #fff5;
 }
-.gradient-btn:hover {
+.poke-email-btn:hover {
   transform: translateY(-3px) scale(1.04);
-  background: linear-gradient(100deg, #ffd700 0%, #8e2de2 60%, #4a00e0 100%);
+  background: linear-gradient(100deg, #f53444 0%, #ffec4b 100%);
   box-shadow: 0 8px 32px #4a00e044, 0 1.5px 14px #ffd70022;
 }
-
-/* Section Headings */
-h2 {
-  margin-top: 2.2rem;
-  margin-bottom: 1rem;
-  font-size: 1.45rem;
-  font-weight: 600;
-  color: #ffd700;
-  letter-spacing: 0.05em;
+.pokeball-icon {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: radial-gradient(circle at 60% 40%, #fff 70%, #ffec4b 100%);
+  border: 4px solid #f53444;
+  margin-right: 1em;
+  position: relative;
+  box-shadow: 0 1.5px 8px #f5344422;
+}
+.pokeball-icon::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 10px; height: 10px;
+  background: #fff;
+  border: 2px solid #222;
+  border-radius: 50%;
 }
 
 /* Footer */
@@ -300,128 +271,8 @@ footer {
   opacity: 0.7;
 }
 
-/* Dragon Ball Radar as Mini Index */
-#dragonball-radar {
-  position: fixed;
-  bottom: 28px;
-  right: 32px;
-  z-index: 99;
-  width: 88px;
-  user-select: none;
-  cursor: pointer;
-  text-align: center;
-}
-.radar-outer {
-  width: 68px; height: 68px; border-radius: 50%;
-  background: #222a33cc;
-  border: 2.5px solid #2efc7e;
-  box-shadow: 0 0 8px 2px #2efc7e66;
-  position: relative;
-  overflow: hidden;
-}
-.radar-inner {
-  width: 40px; height: 40px; border-radius: 50%;
-  background: #1f4736cc;
-  position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%,-50%);
-  border: 2px solid #2efc7e77;
-}
-.radar-dot {
-  position: absolute;
-  width: 9px; height: 9px; background: #ffd700;
-  border-radius: 50%; box-shadow: 0 0 7px 2px #ffd70088;
-  animation: radar-dot-blink 2.5s infinite alternate;
-}
-@keyframes radar-dot-blink {
-  0%, 100% { opacity: 0.90; }
-  50% { opacity: 0.25; }
-}
-.radar-label {
-  display: block;
-  margin-top: 4px;
-  font-size: 0.78em;
-  color: #2efc7e;
-  letter-spacing: 0.13em;
-}
-
-/* Radar Index Mini Nav */
-.radar-index {
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  bottom: 90px;
-  right: -16px;
-  background: rgba(24, 24, 40, 0.98);
-  box-shadow: 0 4px 24px #000c, 0 1.5px 10px #8e2de244;
-  border-radius: 18px;
-  padding: 1.2em 1.4em 1.2em 1.6em;
-  min-width: 158px;
-  transition: opacity 0.32s cubic-bezier(.4,2,.6,1);
-  z-index: 1200;
-}
-
-.radar-index ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.radar-index li {
-  margin-bottom: 1em;
-}
-.radar-index li:last-child {
-  margin-bottom: 0;
-}
-.radar-index a {
-  color: #ffd700;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.13em;
-  letter-spacing: 0.03em;
-  transition: color 0.18s;
-  padding: 0.2em 0.7em;
-  border-radius: 8px;
-  display: block;
-}
-.radar-index a:hover, .radar-index a:focus {
-  color: #fff;
-  background: var(--gradient);
-  text-shadow: 0 2px 12px #ffd70022;
-}
-
-/* Show radar index on click */
-#dragonball-radar.open .radar-index {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Radar Sweep */
-.radar-sweep {
-  position: absolute;
-  width: 100%; height: 100%;
-  border-radius: 50%;
-  background: conic-gradient(#2efc7e33 0deg 60deg, transparent 60deg 360deg);
-  pointer-events: none;
-  z-index: 2;
-  animation: radar-sweep 2.5s linear infinite;
-}
-@keyframes radar-sweep {
-  0% { transform: rotate(0deg);}
-  100% { transform: rotate(360deg);}
-}
-
-/* Easter Egg Animation */
-.konami-dragonball {
-  position: fixed;
-  left: 50%; top: 50%;
-  transform: translate(-50%, -50%) scale(0.1);
-  width: 120px; height: 120px;
-  z-index: 1200;
-  animation: dragonball-pop 1.5s cubic-bezier(.4,2,.6,1);
-  pointer-events: none;
-}
-@keyframes dragonball-pop {
-  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.1);}
-  55% { opacity: 1; transform: translate(-50%, -50%) scale(1.2);}
-  80% { transform: translate(-50%, -50%) scale(0.95);}
-  100% { opacity: 0; transform: translate(-50%, -50%) scale(0.5);}
+/* Responsive */
+@media (max-width: 900px) {
+  .anime-sidebar { display: none; }
+  .container { margin-left: 0; }
 }
