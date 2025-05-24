@@ -4,41 +4,48 @@
   --accent: #8e2de2;
   --accent2: #4a00e0;
   --gradient: linear-gradient(120deg, #8e2de2, #4a00e0, #00c3ff, #ffff1c);
+  --text-light: #f3f3f3;
+  --text-dark: #222;
 }
 
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+/* Dragon Ball GIF background */
+body::before {
+  content: "";
+  position: fixed;
+  z-index: -2;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExM25iNjV5cWUxa2h6cGo4bDQ5NjJ3MnhvcXA0b2QyMjhteTZkemM2biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/aAbax5anloMNk6TSP9/giphy.gif') center center/cover no-repeat;
+  opacity: 0.25; /* Adjust for readability */
+  pointer-events: none;
+  transition: opacity 0.3s;
 }
 
 body {
   min-height: 100vh;
-  background: var(--main-bg);
-  position: relative;
+  margin: 0;
   font-family: 'Segoe UI', Arial, sans-serif;
-  color: #f3f3f3;
+  color: var(--text-light);
+  background: var(--main-bg);
   overflow-x: hidden;
-  /* For smooth cursor effect */
-  transition: background 0.3s;
+  transition: background 0.3s, color 0.3s;
 }
 
-/* Gradient background hover effect, animated via JS */
+/* Gradient cursor effect */
 .bg-gradient-cursor {
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 100vh;
   pointer-events: none;
-  z-index: 0;
-  transition: opacity 0.4s;
+  z-index: -1;
   background: radial-gradient(circle at var(--x, 50vw) var(--y, 50vh), #8e2de2aa 0%, #4a00e0aa 40%, transparent 80%);
   opacity: 0.5;
   will-change: background;
+  transition: opacity 0.4s;
 }
 
 .container {
   position: relative;
   z-index: 1;
-  max-width: 700px;
+  max-width: 750px;
   margin: 3rem auto;
   background: var(--card-bg);
   border-radius: 24px;
@@ -47,9 +54,38 @@ body {
   backdrop-filter: blur(1.5px);
 }
 
-header {
-  text-align: center;
-  margin-bottom: 2.5rem;
+/* Aura Avatar */
+.avatar-aura-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.3rem;
+}
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  z-index: 1;
+  background: #fff;
+  position: relative;
+}
+.aura {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 190px; height: 190px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  box-shadow:
+    0 0 60px 25px #ffe60088,
+    0 0 120px 60px #ffb30044,
+    0 0 200px 80px #f6ff0044;
+  animation: aura-pulse 2.5s infinite alternate;
+}
+@keyframes aura-pulse {
+  0% { box-shadow: 0 0 60px 25px #ffe60088, 0 0 120px 60px #ffb30033, 0 0 200px 80px #f6ff0022; }
+  100% { box-shadow: 0 0 95px 45px #ffe600cc, 0 0 220px 110px #ffb30077, 0 0 380px 120px #f6ff0066; }
 }
 
 h1 {
@@ -60,42 +96,17 @@ h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-h2 {
-  margin-top: 2.2rem;
-  margin-bottom: 1rem;
-  font-size: 1.45rem;
-  font-weight: 600;
+.subtitle {
+  min-height: 2.2rem;
+  font-size: 1.33rem;
+  line-height: 1.6;
   color: #ffd700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
+  font-weight: 600;
 }
 
-section {
-  margin-bottom: 2.2rem;
-}
-
-ul, li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.skills-list li,
-.projects-list li {
-  background: rgba(255,255,255,0.03);
-  margin-bottom: 0.8em;
-  padding: 0.8em 1.2em;
-  border-radius: 8px;
-  transition: background 0.2s;
-  border-left: 4px solid #8e2de2;
-}
-
-.skills-list li:hover,
-.projects-list li:hover {
-  background: rgba(142,45,226,0.18);
-}
-
-a {
+.socials a {
+  margin: 0 0.7em;
   color: #ffd700;
   text-decoration: none;
   font-weight: 500;
@@ -106,15 +117,128 @@ a {
   -webkit-text-fill-color: transparent;
   transition: background-position 0.3s;
 }
-
-a:hover {
+.socials a:hover {
   background-position: right center;
   filter: brightness(1.2);
   text-shadow: 0 2px 12px #8e2de288;
 }
 
-.button,
-button {
+/* Theme Toggle Button */
+#toggle-theme {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-top: 1.1rem;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dragonball {
+  width: 38px; height: 38px;
+  background: radial-gradient(circle, #ffe000 70%, #ffbe00 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 18px 6px #ffef3b88, 0 1px 8px #ff9800cc;
+  position: relative;
+  transition: background 0.3s;
+}
+.dragonball::after {
+  content: "★";
+  position: absolute;
+  top: 8px; left: 10px;
+  font-size: 20px;
+  color: #e05200;
+  filter: drop-shadow(0 0 2px #ff9000);
+}
+
+/* Typing Effect */
+#typing-intro {
+  border-right: 2px solid #ffd700;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  min-width: 110px;
+}
+
+/* Skills Bars */
+.skills-bars {
+  margin-top: 1.2em;
+}
+.skill {
+  margin-bottom: 1.15em;
+}
+.skill span {
+  font-weight: 500;
+  color: #ffd700;
+  margin-bottom: 0.2em;
+  display: block;
+}
+.bar {
+  background: #222;
+  border-radius: 12px;
+  height: 16px;
+  overflow: hidden;
+  box-shadow: 0 1px 5px #0002;
+}
+.bar > div {
+  height: 100%;
+  background: linear-gradient(90deg, #8e2de2 0%, #ffd700 100%);
+  border-radius: 12px;
+  transition: width 1.5s cubic-bezier(.65,.05,.36,1);
+  width: 0;
+}
+
+/* Project Cards */
+.projects-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+.project-card {
+  width: 210px; height: 180px;
+  perspective: 900px;
+  cursor: pointer;
+}
+.card-inner {
+  width: 100%; height: 100%;
+  transition: transform 0.5s cubic-bezier(.4,2,.6,1);
+  transform-style: preserve-3d;
+  position: relative;
+}
+.project-card:hover .card-inner,
+.project-card:focus .card-inner {
+  transform: rotateY(180deg);
+}
+.card-front, .card-back {
+  position: absolute;
+  backface-visibility: hidden;
+  width: 100%; height: 100%;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 0.5px 6px #8e2de266;
+  padding: 1.1em;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  color: #ffd700;
+  text-align: center;
+}
+.card-front strong {
+  font-size: 1.13em;
+  margin-bottom: 0.6em;
+}
+.card-back {
+  transform: rotateY(180deg);
+  color: #fff;
+}
+.card-back a {
+  margin-top: 0.7em;
+  color: #ffd700;
+  text-decoration: underline;
+}
+
+/* Contact Button */
+.button {
   display: inline-block;
   margin-top: 1.5rem;
   padding: 0.8em 2.2em;
@@ -128,9 +252,7 @@ button {
   box-shadow: 0 4px 18px #8e2de244;
   transition: transform 0.1s, box-shadow 0.2s;
 }
-
-.button:hover,
-button:hover {
+.button:hover {
   transform: translateY(-2px) scale(1.03);
   box-shadow: 0 8px 32px #4a00e044;
 }
@@ -144,20 +266,83 @@ footer {
   opacity: 0.7;
 }
 
-@media (max-width: 750px) {
-  .container {
-    padding: 1.3rem;
-    margin: 1rem;
-  }
-  h1 { font-size: 2rem; }
-}
-body::before {
-  content: "";
+/* Dragon Ball Radar */
+#dragonball-radar {
   position: fixed;
-  z-index: -1;
-  top: 0; left: 0; width: 100vw; height: 100vh;
-  background: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExM25iNjV5cWUxa2h6cGo4bDQ5NjJ3MnhvcXA0b2QyMjhteTZkemM2biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/aAbax5anloMNk6TSP9/giphy.gif') center center/cover no-repeat;
-  opacity: 0.25; /* Adjust for readability */
+  bottom: 28px;
+  right: 32px;
+  z-index: 9;
+  width: 88px;
+  user-select: none;
+  cursor: pointer;
+  text-align: center;
+}
+.radar-outer {
+  width: 68px; height: 68px; border-radius: 50%;
+  background: #222a33cc;
+  border: 2.5px solid #2efc7e;
+  box-shadow: 0 0 8px 2px #2efc7e66;
+  position: relative;
+  overflow: hidden;
+}
+.radar-inner {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: #1f4736cc;
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  border: 2px solid #2efc7e77;
+}
+.radar-dot {
+  position: absolute;
+  width: 9px; height: 9px; background: #ffd700;
+  border-radius: 50%; box-shadow: 0 0 7px 2px #ffd70088;
+  animation: radar-dot-blink 2.5s infinite alternate;
+}
+@keyframes radar-dot-blink {
+  0%, 100% { opacity: 0.90; }
+  50% { opacity: 0.25; }
+}
+.radar-label {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.78em;
+  color: #2efc7e;
+  letter-spacing: 0.13em;
+}
+.radar-sweep {
+  position: absolute;
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(#2efc7e33 0deg 60deg, transparent 60deg 360deg);
   pointer-events: none;
-  transition: opacity 0.3s;
+  z-index: 2;
+  animation: radar-sweep 2.5s linear infinite;
+}
+@keyframes radar-sweep {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+/* Easter Egg Animation */
+.konami-dragonball {
+  position: fixed;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  width: 120px; height: 120px;
+  z-index: 1200;
+  animation: dragonball-pop 1.5s cubic-bezier(.4,2,.6,1);
+  pointer-events: none;
+}
+@keyframes dragonball-pop {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.1);}
+  55% { opacity: 1; transform: translate(-50%, -50%) scale(1.2);}
+  80% { transform: translate(-50%, -50%) scale(0.95);}
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(0.5);}
+}
+
+@media (max-width: 850px) {
+  .container { padding: 1.3rem; margin: 1rem; }
+  h1 { font-size: 2rem; }
+  .projects-cards { flex-direction: column; align-items: center; }
+  .project-card { width: 92vw; max-width: 320px; margin-bottom: 1em;}
 }
