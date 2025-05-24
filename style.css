@@ -151,3 +151,13 @@ footer {
   }
   h1 { font-size: 2rem; }
 }
+body::before {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExM25iNjV5cWUxa2h6cGo4bDQ5NjJ3MnhvcXA0b2QyMjhteTZkemM2biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/aAbax5anloMNk6TSP9/giphy.gif') center center/cover no-repeat;
+  opacity: 0.25; /* Adjust for readability */
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
