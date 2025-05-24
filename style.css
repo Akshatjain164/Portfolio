@@ -1,212 +1,234 @@
+:root {
+  --sidebar-bg: #24243e;
+  --sidebar-text: #fff;
+  --sidebar-accent: #ffd700;
+  --main-bg: #f8f8fa;
+  --section-bg: #fff;
+  --section-radius: 18px;
+  --card-bg: #f0f0f5;
+  --card-radius: 12px;
+  --primary: #0070f3;
+  --primary-dark: #003d6a;
+  --link: #0070f3;
+  --link-hover: #ffd700;
+}
+
 body {
   margin: 0;
-  font-family: 'Segoe UI', 'Arial', sans-serif;
-  background: #181828;
-  color: #fff;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--main-bg);
+  color: #222;
 }
 
-/* Sidebar */
-.anime-sidebar {
+.sidebar {
   position: fixed;
-  left: 0; top: 0; height: 100vh; width: 68px;
-  background: #170c25cc;
-  display: flex; flex-direction: column; align-items: center;
-  box-shadow: 2px 0 18px #000a;
-  z-index: 10;
-}
-.anime-sidebar nav {
-  margin-top: 2.5em;
-  display: flex; flex-direction: column; gap: 2em;
-}
-.sidebar-icon {
-  width: 46px; height: 46px; border-radius: 12px;
-  background: #fff;
-  display: block;
-  margin: 0 auto;
-  box-shadow: 0 2px 12px #0004;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 65% 65%;
-  transition: background 0.2s, box-shadow 0.22s;
-}
-.sidebar-icon.onepiece { background: #fff url('https://static.thenounproject.com/png/4242933-200.png') center/70% no-repeat; }
-.sidebar-icon.naruto { background: #fff url('https://static.thenounproject.com/png/3572691-200.png') center/80% no-repeat; }
-.sidebar-icon.demonslayer { background: #fff url('https://static.thenounproject.com/png/4412246-200.png') center/80% no-repeat; }
-.sidebar-icon.pokemon { background: #fff url('https://static.thenounproject.com/png/4755255-200.png') center/80% no-repeat; }
-.sidebar-icon.aot { background: #fff url('https://static.thenounproject.com/png/5414084-200.png') center/70% no-repeat; }
-.sidebar-icon:hover { box-shadow: 0 8px 28px #ffd70077; background-color: #ffd70022; }
-
-/* Container */
-.container {
-  margin-left: 90px;
-  padding: 2.5em 2em 1em 2em;
-  max-width: 900px;
-  background: transparent;
-}
-
-/* Anime section backgrounds */
-.anime-bg-onepiece { background: linear-gradient(145deg, #36a4f7 85%, #ffe066 100%); border-radius: 20px; box-shadow: 0 2px 18px #1274de11; }
-.anime-bg-naruto { background: linear-gradient(145deg, #ff9800 75%, #fdc37c 100%); border-radius: 20px; box-shadow: 0 2px 18px #ff980022; }
-.anime-bg-demonslayer { background: repeating-linear-gradient(135deg, #2e7e5c, #2e7e5c 18px, #d9b4c1 19px, #d9b4c1 36px); border-radius: 20px; }
-.anime-bg-dragonball { background: linear-gradient(100deg, #fca311 60%, #ffd700 100%); border-radius: 20px; box-shadow: 0 2px 18px #ffd70022; }
-.anime-bg-pokemon { background: linear-gradient(90deg, #f53444 50%, #ffec4b 100%); border-radius: 20px; box-shadow: 0 2px 18px #ffec4b44; }
-
-section {
-  margin-bottom: 2em;
-  padding: 2.2em 2em 2em 2em;
-  box-shadow: 0 4px 24px #00000013;
-}
-
-/* Animated titles */
-.anime-title {
-  font-family: 'Trebuchet MS', Impact, 'Arial Black', Arial, sans-serif;
-  font-size: 2.2em;
-  margin-bottom: 0.3em;
-  letter-spacing: 0.06em;
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(30px) scale(.96);
-  animation: anime-title-in 0.9s forwards;
-}
-@keyframes anime-title-in {
-  to { opacity: 1; transform: translateY(0) scale(1);}
-}
-.onepiece-title { color: #ffe066; text-shadow: 2px 2px 0 #1274de, 0 3px 8px #fff3; }
-.naruto-title { color: #ff9800; text-shadow: 2px 2px 0 #6d3d00, 0 3px 8px #0003; }
-.demonslayer-title { color: #2e7e5c; text-shadow: 2px 2px 0 #d9b4c1, 0 3px 8px #fff3; }
-.dragonball-title { color: #ffd700; text-shadow: 2px 2px 0 #fca311, 0 3px 8px #fff3; }
-.pokemon-title { color: #ffec4b; text-shadow: 2px 2px 0 #f53444, 0 3px 8px #fff3; }
-
-/* Section animated intro */
-.anime-intro {
-  font-size: 1.2em;
-  margin-bottom: 1.1em;
-  animation: fadeIn 0.9s 0.5s backwards;
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* Skills Bars */
-.skills-bars {
-  margin-top: 1.2em;
-}
-.skill {
-  margin-bottom: 1.45em;
-}
-.skill span {
-  font-weight: 600;
-  font-size: 1.09em;
-  color: #fff;
-  margin-bottom: 0.2em;
-  display: block;
-}
-.bar {
-  background: #222;
-  border-radius: 12px;
-  height: 16px;
-  overflow: hidden;
-  box-shadow: 0 1.5px 5px #0002;
-}
-.bar > div {
-  height: 100%;
-  border-radius: 12px;
-  transition: width 2s cubic-bezier(.65,.05,.36,1);
-}
-.demonslayer-skill .bar > div { background: linear-gradient(90deg, #2e7e5c 0%, #d9b4c1 100%);}
-.deathnote-skill .bar > div { background: linear-gradient(90deg, #222 0%, #b71c1c 100%);}
-.aot-skill .bar > div { background: linear-gradient(90deg, #536d44 0%, #c2b280 100%);}
-.pokemon-skill .bar > div { background: linear-gradient(90deg, #f53444 0%, #ffec4b 100%);}
-
-/* Project Cards */
-.projects-cards {
+  left: 0; top: 0; bottom: 0;
+  width: 270px;
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
   display: flex;
-  gap: 2rem;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em 1em 1em 1em;
+  box-shadow: 2px 0 16px #0002;
+}
+
+.avatar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar {
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  border: 3px solid var(--sidebar-accent);
+  margin-bottom: 1em;
+  object-fit: cover;
+}
+
+.name {
+  margin: 0.4em 0 0.2em 0;
+  font-size: 1.5em;
+  font-weight: 700;
+  color: var(--sidebar-accent);
+  letter-spacing: 0.02em;
+}
+
+.subtitle {
+  margin: 0;
+  color: #eee;
+  font-size: 1.1em;
+  opacity: 0.8;
+  text-align: center;
+}
+
+.sidebar nav {
+  width: 100%;
+  margin: 2em 0 1em 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+}
+.sidebar nav a {
+  color: var(--sidebar-text);
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 500;
+  padding: 0.6em 1em;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  transition: background 0.16s, color 0.16s;
+}
+.sidebar nav a:hover,
+.sidebar nav a.active {
+  background: var(--sidebar-accent);
+  color: #222;
+}
+
+.sidebar-socials {
+  margin-top: auto;
+  display: flex;
+  gap: 1em;
+}
+.sidebar-socials a {
+  color: #ffd700;
+  font-size: 1.35em;
+  transition: color 0.18s;
+}
+.sidebar-socials a:hover {
+  color: var(--primary);
+}
+
+main {
+  margin-left: 270px;
+  padding: 2.5em 2em 1em 2em;
+  max-width: 920px;
+}
+
+.section {
+  background: var(--section-bg);
+  border-radius: var(--section-radius);
+  margin-bottom: 2.2em;
+  padding: 2.3em 2em 1.6em 2em;
+  box-shadow: 0 3px 18px #0001;
+  animation: fadeInUp 0.8s;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(32px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.section h2 {
+  margin-top: 0;
+  font-size: 1.45em;
+  color: var(--primary-dark);
+  letter-spacing: 0.02em;
+  margin-bottom: 1em;
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
   flex-wrap: wrap;
-  margin-top: 1.4em;
-  margin-bottom: 1.2em;
+  gap: 2em;
+}
+.skills-list li {
+  background: var(--card-bg);
+  padding: 0.85em 1.6em;
+  border-radius: var(--card-radius);
+  font-size: 1.08em;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  box-shadow: 0 2px 5px #0001;
+}
+
+.projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
 }
 .project-card {
-  border-radius: 20px;
-  box-shadow: 0 2px 14px #0002;
-  min-width: 220px;
-  max-width: 250px;
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  padding: 1.4em 1.1em 1.2em 1.1em;
   flex: 1 1 220px;
-  padding: 1.2em 1em;
-  margin-bottom: 1em;
-  transition: transform 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.2s;
-  display: flex; flex-direction: column;
+  min-width: 220px;
+  max-width: 300px;
+  box-shadow: 0 2px 12px #0001;
+  display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  background: #fff2;
-  border: 2.5px solid transparent;
-  cursor: pointer;
-  position: relative;
+  transition: box-shadow 0.17s, transform 0.15s;
 }
-.project-card strong {
-  font-size: 1.14em;
-  margin-bottom: 0.4em;
-  display: block;
+.project-card:hover {
+  box-shadow: 0 8px 24px #ffd70044;
+  transform: translateY(-4px) scale(1.03);
 }
-.pokemon-card { border-color: #ffec4b; background: #fff9; }
-.onepiece-card { border-color: #1274de; background: #e8f6ff; }
-.naruto-card { border-color: #ff9800; background: #fff8ec; }
-.project-card:hover { transform: translateY(-6px) scale(1.04); }
-
-/* Contact Pokeball Button */
-.poke-email-btn {
-  display: inline-flex;
-  align-items: center;
-  margin-top: 1.5rem;
-  padding: 0.8em 2.5em;
-  font-size: 1.1rem;
-  font-weight: 600;
+.project-card h3 {
+  margin: 0 0 0.35em 0;
+  font-size: 1.09em;
+  color: var(--primary-dark);
+}
+.project-card p {
+  font-size: 0.97em;
   color: #222;
-  background: linear-gradient(90deg, #ffec4b 70%, #f53444 100%);
-  border: none;
-  border-radius: 32px;
-  cursor: pointer;
-  box-shadow: 0 4px 18px #ffd70044, 0 1.5px 8px #f5344422;
-  transition: transform 0.13s, box-shadow 0.15s, background 0.2s;
-  text-shadow: 0 1px 6px #fff5;
+  margin-bottom: 1em;
 }
-.poke-email-btn:hover {
-  transform: translateY(-3px) scale(1.04);
-  background: linear-gradient(100deg, #f53444 0%, #ffec4b 100%);
-  box-shadow: 0 8px 32px #4a00e044, 0 1.5px 14px #ffd70022;
+.project-card a {
+  color: var(--link);
+  font-weight: 600;
+  text-decoration: none;
+  background: #ffd70022;
+  padding: 0.3em 0.8em;
+  border-radius: 7px;
+  transition: color 0.17s, background 0.17s;
 }
-.pokeball-icon {
-  width: 32px; height: 32px; border-radius: 50%;
-  background: radial-gradient(circle at 60% 40%, #fff 70%, #ffec4b 100%);
-  border: 4px solid #f53444;
-  margin-right: 1em;
-  position: relative;
-  box-shadow: 0 1.5px 8px #f5344422;
-}
-.pokeball-icon::after {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 50%; top: 50%; transform: translate(-50%, -50%);
-  width: 10px; height: 10px;
-  background: #fff;
-  border: 2px solid #222;
-  border-radius: 50%;
+.project-card a:hover {
+  color: #222;
+  background: var(--link-hover);
 }
 
-/* Footer */
+.email-btn {
+  display: inline-block;
+  margin-top: 1em;
+  font-size: 1.13em;
+  font-weight: 600;
+  color: #fff;
+  background: var(--primary);
+  padding: 0.7em 2.2em;
+  border-radius: 32px;
+  text-decoration: none;
+  box-shadow: 0 4px 18px #0070f322;
+  transition: background 0.16s, color 0.16s, transform 0.13s;
+}
+.email-btn i {
+  margin-right: 0.7em;
+}
+.email-btn:hover {
+  background: var(--sidebar-accent);
+  color: #222;
+  transform: translateY(-2px) scale(1.04);
+}
+
 footer {
-  text-align: center;
   color: #aaa;
   font-size: 1.1rem;
   margin-top: 2.5rem;
   padding: 1.3rem 0 0 0;
   opacity: 0.7;
+  text-align: center;
 }
 
 /* Responsive */
 @media (max-width: 900px) {
-  .anime-sidebar { display: none; }
-  .container { margin-left: 0; }
+  .sidebar { display: none; }
+  main { margin-left: 0; }
 }
