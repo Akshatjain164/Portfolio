@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>Akshat Jain | Pokémon Portfolio</title>
+    <!-- Font Awesome for icons (skills, socials) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <style>
         html,
@@ -148,6 +149,7 @@
             pointer-events: auto;
         }
 
+        /* --- NAVIGATION --- */
         .poke-nav {
             display: flex;
             justify-content: center;
@@ -170,6 +172,7 @@
             width: 58px;
             height: 58px;
             overflow: hidden;
+            position: relative;
         }
 
         .poke-nav-btn:hover,
@@ -185,6 +188,26 @@
             display: block;
         }
 
+        .nav-skill-icon-bg {
+            background: linear-gradient(135deg, #ffe33a 60%, #ff457f 100%);
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px #ffe33a88;
+            border: 2px solid #ffe33a;
+        }
+
+        .nav-skill-icon-bg img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* --- HEADER --- */
         .profile-header {
             display: flex;
             flex-direction: column;
@@ -200,7 +223,7 @@
             border: 5px solid #ffe33a;
             box-shadow: 0 2px 18px #2222;
             object-fit: cover;
-            object-position: center 5%;
+            object-position: center 7%;
             background: #232323;
             margin-bottom: 0.5em;
         }
@@ -276,6 +299,7 @@
             gap: 0.4em;
         }
 
+        /* --- SKILLS HEADER --- */
         .skills-header {
             display: flex;
             align-items: center;
@@ -283,11 +307,23 @@
             margin-bottom: 1.3em;
         }
 
-        .skills-header .skills-pokemon {
-            width: 80px;
-            height: auto;
-            object-fit: contain;
-            flex-shrink: 0;
+        .skills-pokemon-bg {
+            background: linear-gradient(135deg, #ffe33a 60%, #ff457f 100%);
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px #ffe33a88;
+            border: 2px solid #ffe33a;
+        }
+
+        .skills-pokemon {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            object-fit: cover;
         }
 
         .skills-header h2 {
@@ -302,8 +338,14 @@
                 gap: 0.5em;
             }
 
-            .skills-header .skills-pokemon {
-                width: 60px;
+            .skills-pokemon-bg {
+                width: 50px;
+                height: 50px;
+            }
+
+            .skills-pokemon {
+                width: 40px;
+                height: 40px;
             }
 
             .skills-header h2 {
@@ -321,7 +363,7 @@
         .skill-card {
             display: flex;
             align-items: center;
-            gap: 0.7em;
+            gap: 0.6em;
             background: linear-gradient(90deg, #ffe33a 65%, #ff457f22 100%);
             color: #232323;
             padding: 0.7em 1.4em;
@@ -333,8 +375,45 @@
             transition: transform 0.13s, box-shadow 0.14s;
         }
 
-        .skill-card i {
-            font-size: 1.27em;
+        .skill-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffe33a 65%, #ff457f 100%);
+            box-shadow: 0 2px 8px #ffe33a77;
+            color: #232323;
+            font-size: 1.45em;
+        }
+
+        .skill-icon.python {
+            background: linear-gradient(135deg, #ffe33a, #4B8BBE);
+        }
+
+        .skill-icon.html {
+            background: linear-gradient(135deg, #ffe33a, #e44d26);
+        }
+
+        .skill-icon.css {
+            background: linear-gradient(135deg, #ffe33a, #264de4);
+        }
+
+        .skill-icon.js {
+            background: linear-gradient(135deg, #ffe33a, #f0db4f);
+        }
+
+        .skill-icon.brain {
+            background: linear-gradient(135deg, #ffe33a, #a259c2);
+        }
+
+        .skill-icon.git {
+            background: linear-gradient(135deg, #ffe33a, #f34f29);
+        }
+
+        .skill-icon.responsive {
+            background: linear-gradient(135deg, #ffe33a, #39fff4);
         }
 
         .skill-card:hover {
@@ -508,7 +587,8 @@
                 height: 40px;
             }
 
-            .poke-nav-btn img {
+            .poke-nav-btn img,
+            .nav-skill-icon-bg {
                 width: 24px;
                 height: 24px;
             }
@@ -520,6 +600,16 @@
 
             .skills-list {
                 gap: 0.5em;
+            }
+
+            .skills-pokemon-bg {
+                width: 38px;
+                height: 38px;
+            }
+
+            .skills-pokemon {
+                width: 30px;
+                height: 30px;
             }
         }
     </style>
@@ -544,7 +634,9 @@
                 <img src="https://img.icons8.com/color/48/000000/pikachu-pokemon.png" alt="About" />
             </a>
             <a href="#skills" class="poke-nav-btn" aria-label="Skills">
-                <img src="https://img.pokemondb.net/artwork/bulbasaur.jpg" alt="Skills" />
+                <div class="nav-skill-icon-bg">
+                    <img src="https://img.pokemondb.net/artwork/bulbasaur.jpg" alt="Skills" />
+                </div>
             </a>
             <a href="#projects" class="poke-nav-btn" aria-label="Projects">
                 <img src="https://img.icons8.com/color/48/000000/charmander.png" alt="Projects" />
@@ -554,8 +646,7 @@
             </a>
         </nav>
         <header class="profile-header">
-            <img class="profile-avatar" src="my profile pic.jpg"
-                alt="Akshat Jain" />
+            <img class="profile-avatar" src="my profile pic.jpg" alt="Akshat Jain" />
             <h1 class="profile-title">Akshat Jain</h1>
             <p class="profile-subtitle">Aspiring Developer &amp; Problem Solver</p>
             <div class="profile-socials">
@@ -573,23 +664,33 @@
                     About Me
                 </h2>
                 <p>
-                    Hi, I'm Akshat! I code, design, and catch inspiration from everywhere—especially the Pokémon world.
-                    Passionate about <b>web development</b>, <b>problem solving</b>, and building creative, interactive
-                    experiences.
+                    Hi, I'm Akshat! I code, design, and catch inspiration from everywhere.
+                    Passionate about <b>web development</b>, <b>problem solving</b>, and <b>building creative,
+                        interactive
+                        experiences.</b>
                 </p>
             </section>
             <section id="skills" class="poke-section">
                 <div class="skills-header">
-                    <img class="skills-pokemon" src="https://img.pokemondb.net/artwork/bulbasaur.jpg" alt="Bulbasaur" />
+                    <div class="skills-pokemon-bg">
+                        <img class="skills-pokemon" src="https://img.pokemondb.net/artwork/bulbasaur.jpg"
+                            alt="Bulbasaur" />
+                    </div>
                     <h2>Skills</h2>
                 </div>
                 <div class="skills-list">
-                    <div class="skill-card"><i class="fa-brands fa-python"></i> Python</div>
-                    <div class="skill-card"><i class="fa-brands fa-html5"></i> HTML</div>
-                    <div class="skill-card"><i class="fa-brands fa-css3-alt"></i> CSS</div>
-                    <div class="skill-card"><i class="fa-solid fa-brain"></i> Problem Solving</div>
-                    <div class="skill-card"><i class="fa-brands fa-git-alt"></i> Git &amp; GitHub</div>
-                    <div class="skill-card"><i class="fa-solid fa-mobile-screen-button"></i> Responsive Web Design</div>
+                    <div class="skill-card"><span class="skill-icon python"><i class="fa-brands fa-python"></i></span>
+                        Python</div>
+                    <div class="skill-card"><span class="skill-icon html"><i class="fa-brands fa-html5"></i></span> HTML
+                    </div>
+                    <div class="skill-card"><span class="skill-icon css"><i class="fa-brands fa-css3-alt"></i></span>
+                        CSS</div>
+                    <div class="skill-card"><span class="skill-icon brain"><i class="fa-solid fa-brain"></i></span>
+                        Problem Solving</div>
+                    <div class="skill-card"><span class="skill-icon git"><i class="fa-brands fa-git-alt"></i></span> Git
+                        &amp; GitHub</div>
+                    <div class="skill-card"><span class="skill-icon responsive"><i
+                                class="fa-solid fa-mobile-screen-button"></i></span> Responsive Web Design</div>
                 </div>
             </section>
             <section id="projects" class="poke-section">
@@ -623,7 +724,8 @@
                     Contact
                 </h2>
                 <p>Want to collaborate? Throw me a Pokéball or email me:</p>
-                <a class="poke-email-btn" href="mailto:ajain04072007@gmail.com">
+                <a class="poke-email-btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=ajain04072007@gmail.com"
+                    target="_blank">
                     <span class="pokeball-mini"></span> Email Me
                 </a>
             </section>
