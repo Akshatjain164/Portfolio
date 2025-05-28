@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tic Tac Toe </title>
+  <meta name="viewport" content="width=320,initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #2b2a4e 0%, #3c1742 40%, #232946 100%);
+      /* Darker purple/blue gradient */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    h1 { margin: 1em 0 0.5em 0; color: #ffe33a; text-shadow: 0 2px 8px #000a;}
+    .level-select {
+      margin: 0.5em 0 1em 0;
+      font-size: 1.1em;
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      color: #ffe33a;
+    }
+    .board {
+      display: grid;
+      grid-template-columns: repeat(3, 80px);
+      grid-gap: 10px;
+      margin: 1em 0;
+    }
+    .cell {
+      width: 80px; height: 80px;
+      background: #232946;
+      border-radius: 16px;
+      font-size: 2.5em; font-weight: bold;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; box-shadow: 0 2px 8px #ffe33a44;
+      transition: background 0.15s, color 0.15s;
+      user-select: none;
+      color: #ffe33a;
+    }
+    .cell:hover { background: #39386a; }
+    .status { font-size: 1.2em; margin: 1em 0; color: #fff; }
+    .reset-btn {
+      background: #ff457f;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 0.5em 1.4em;
+      font-size: 1.1em;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #0003;
+      transition: background 0.15s;
+    }
+    .reset-btn:hover { background: #232946; }
+    @media (max-width: 600px) {
+      .board { grid-template-columns: repeat(3, 56px); grid-gap: 7px; }
+      .cell { width: 56px; height: 56px; font-size: 2em;}
+    }
+  </style>
+</head>
+<body>
+  <h1>Tic Tac Toe <span style="font-size:0.7em;">vs Computer</span></h1>
+  <div class="level-select">
+    <label for="level">Level:</label>
+    <select id="level" onchange="resetGame()" aria-label="Difficulty Level">
+      <option value="easy">Easy</option>
+      <option value="medium">Medium</option>
+      <option value="hard">Hard</option>
+    </select>
+  </div>
+  <div class="board" id="board"></div>
+  <div class="status" id="status"></div>
+  <button class="reset-btn" onclick="resetGame()">Reset</button>
+  <script>
+    let currentPlayer = "X";
+    let board = ["", "", "", "", "", "", "", "", ""];
+    let gameActive = true;
+    const statusDiv = document.getElementById("status");
+    const boardDiv = document.getElementById("board");
+    const levelSelect = document.getElementById("level");
+    let level = levelSelect.value;
+
+    levelSelect.addEventListener("change", () => {
+      level = levelSelect.value;
+      resetGame();
+    });
+
+    function renderBoard() {
+      boardDiv.innerHTML = "";
+      board.forEach((cell, i) => {
+        const cellDiv = document.createElement("div");
+        cellDiv.classList.add("cell");
+        cellDiv.textContent = cell;
+        cellDiv.onclick = () => makeMove(i);
+        boardDiv.appendChild(cellDiv);
+      });
+    }
+
+    function makeMove(i) {
+      if (!gameActive || board[i] !== "" || currentPlayer !== "X") return;
+      board[i] = "X";
+      renderBoard();
+      if (checkWin("X")) {
+        statusDiv.textContent = `You (X) win!`;
+        gameActive = false;
+        return;
+      } else if (board.every(cell => cell !== "")) {
+        statusDiv.textContent = "It's a draw!";
+        gameActive = false;
+        return;
+      }
+      currentPlayer = "O";
+      statusDiv.textContent = `Computer (O) is thinking...`;
+      setTimeout(computerMove, 500); // delay for realism
+    }
+
+    function computerMove() {
+      if (!gameActive) return;
+      let move;
+      if (level === "easy") {
+        move = randomMove();
+      } else if (level === "medium") {
+        // Try to win or block, else random
+        move = findBestMove();
+        if (move === null) move = randomMove();
+      } else { // hard
+        move = minimaxMove();
+      }
+      if (move === null) return;
+      board[move] = "O";
+      renderBoard();
+      if (checkWin("O")) {
+        statusDiv.textContent = `Computer (O) wins!`;
+        gameActive = false;
+      } else if (board.every(cell => cell !== "")) {
+        statusDiv.textContent = "It's a draw!";
+        gameActive = false;
+      } else {
+        currentPlayer = "X";
+        statusDiv.textContent = `Your (X) turn`;
+      }
+    }
+
+    function randomMove() {
+      const emptyIndices = board.map((cell, idx) => cell === "" ? idx : null).filter(idx => idx !== null);
+      if (emptyIndices.length === 0) return null;
+      return emptyIndices[Math.floor(Math.random() * emptyIndices.length)];
+    }
+
+    // Medium: Try to win/block, else random
+    function findBestMove() {
+      // Try to win
+      for (let i = 0; i < 9; i++) {
+        if (board[i] === "") {
+          board[i] = "O";
+          if (checkWin("O")) { board[i] = ""; return i; }
+          board[i] = "";
+        }
+      }
+      // Try to block X's win
+      for (let i = 0; i < 9; i++) {
+        if (board[i] === "") {
+          board[i] = "X";
+          if (checkWin("X")) { board[i] = ""; return i; }
+          board[i] = "";
+        }
+      }
+      return null;
+    }
+
+    // Hard: Minimax algorithm for unbeatable AI
+    function minimaxMove() {
+      let bestScore = -Infinity;
+      let move = null;
+      for (let i = 0; i < 9; i++) {
+        if (board[i] === "") {
+          board[i] = "O";
+          let score = minimax(board, 0, false);
+          board[i] = "";
+          if (score > bestScore) {
+            bestScore = score;
+            move = i;
+          }
+        }
+      }
+      return move;
+    }
+
+    function minimax(newBoard, depth, isMaximizing) {
+      if (checkWinFor(newBoard, "O")) return 10 - depth;
+      if (checkWinFor(newBoard, "X")) return depth - 10;
+      if (newBoard.every(cell => cell !== "")) return 0;
+
+      if (isMaximizing) {
+        let bestScore = -Infinity;
+        for (let i = 0; i < 9; i++) {
+          if (newBoard[i] === "") {
+            newBoard[i] = "O";
+            let score = minimax(newBoard, depth + 1, false);
+            newBoard[i] = "";
+            bestScore = Math.max(score, bestScore);
+          }
+        }
+        return bestScore;
+      } else {
+        let bestScore = Infinity;
+        for (let i = 0; i < 9; i++) {
+          if (newBoard[i] === "") {
+            newBoard[i] = "X";
+            let score = minimax(newBoard, depth + 1, true);
+            newBoard[i] = "";
+            bestScore = Math.min(score, bestScore);
+          }
+        }
+        return bestScore;
+      }
+    }
+
+    function checkWin(player) {
+      const winPatterns = [
+        [0,1,2],[3,4,5],[6,7,8],
+        [0,3,6],[1,4,7],[2,5,8],
+        [0,4,8],[2,4,6]
+      ];
+      return winPatterns.some(pattern =>
+        pattern.every(idx => board[idx] === player)
+      );
+    }
+    function checkWinFor(b, player) {
+      const winPatterns = [
+        [0,1,2],[3,4,5],[6,7,8],
+        [0,3,6],[1,4,7],[2,5,8],
+        [0,4,8],[2,4,6]
+      ];
+      return winPatterns.some(pattern =>
+        pattern.every(idx => b[idx] === player)
+      );
+    }
+
+    function resetGame() {
+      board = ["", "", "", "", "", "", "", "", ""];
+      currentPlayer = "X";
+      gameActive = true;
+      statusDiv.textContent = `Your (X) turn`;
+      renderBoard();
+    }
+
+    // Initialize
+    resetGame();
+  </script>
+</body>
+</html>
