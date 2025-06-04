@@ -45,6 +45,7 @@ document.addEventListener('keydown', e => {
 const sidebarNav = document.getElementById('sidebar-nav');
 function isMobile() { return window.innerWidth < 720; }
 function updateSidebarState() {
+    // On phone use expanded sidebar, on desktop collapse/expand
     if (isMobile()) sidebarNav.classList.add('expanded');
     else sidebarNav.classList.remove('expanded');
 }
@@ -128,7 +129,7 @@ setTimeout(() => showPage('about'), 50);
 // Already in HTML: .gradient-background, .gradient-sphere, .grid-overlay, .glow, .noise-overlay, .particles-container
 
 const particlesContainer = document.getElementById('particles-container');
-const particleCount = 80;
+const particleCount = window.innerWidth < 600 ? 40 : 80; // Fewer particles on mobile
 
 // Create floating particles
 for (let i = 0; i < particleCount; i++) {
@@ -196,6 +197,9 @@ function animateParticle(particle) {
 
 // Mouse interaction for burst effect and sphere movement
 document.addEventListener('mousemove', (e) => {
+    // Don't spawn extra particles on very small screens
+    if(window.innerWidth<480) return;
+
     // Create particles at mouse position
     const mouseX = (e.clientX / window.innerWidth) * 100;
     const mouseY = (e.clientY / window.innerHeight) * 100;
@@ -237,4 +241,12 @@ document.addEventListener('mousemove', (e) => {
     spheres.forEach(sphere => {
         sphere.style.transform = `translate(${moveX}px, ${moveY}px)`;
     });
+});
+
+// Make sure everything updates if screen size changes (particles, sidebar, etc.)
+window.addEventListener('resize', () => {
+    updateSidebarState();
+    // Optional: If you want to reset particles on resize for perf, clear and re-add:
+    // particlesContainer.innerHTML = '';
+    // for (let i = 0; i < (window.innerWidth < 600 ? 40 : 80); i++) createParticle();
 });
