@@ -53,12 +53,20 @@ updateSidebarState();
 
 // === Skills: expandable ===
 document.querySelectorAll('.skill-card').forEach(card => {
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-expanded', 'false');
+
     card.addEventListener('click', function (e) {
         if (!card.classList.contains('active')) {
-            document.querySelectorAll('.skill-card.active').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.skill-card.active').forEach(c => {
+                c.classList.remove('active');
+                c.setAttribute('aria-expanded', 'false');
+            });
             card.classList.add('active');
+            card.setAttribute('aria-expanded', 'true');
         } else {
             card.classList.remove('active');
+            card.setAttribute('aria-expanded', 'false');
         }
     });
     card.addEventListener('keydown', function (e) {
@@ -68,8 +76,12 @@ document.querySelectorAll('.skill-card').forEach(card => {
 
 // === Projects: flip cards ===
 document.querySelectorAll('.flipcard').forEach(card => {
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-pressed', 'false');
+
     card.addEventListener('click', function () {
         card.classList.toggle('flipped');
+        card.setAttribute('aria-pressed', card.classList.contains('flipped'));
     });
     card.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') { card.click(); }
@@ -102,7 +114,6 @@ function rgb(c) { return `rgb(${c[0]},${c[1]},${c[2]})`; }
 const slider = document.getElementById('theme-slider');
 const sliderDot = document.getElementById('slider-dot');
 function updateTheme(val) {
-    // val: 0..100
     let t = val / 100;
     const p1 = shinyPresets[0], p2 = shinyPresets[1];
     const g1 = lerpColor(p1.g1, p2.g1, t);
@@ -125,12 +136,9 @@ setTimeout(() => showPage('about'), 50);
 
 // === Modern Gradient Spheres, Grid, Glow, Noise, and Interactive Particles ===
 
-// Already in HTML: .gradient-background, .gradient-sphere, .grid-overlay, .glow, .noise-overlay, .particles-container
-
 const particlesContainer = document.getElementById('particles-container');
 const particleCount = 80;
 
-// Create floating particles
 for (let i = 0; i < particleCount; i++) {
     createParticle();
 }
@@ -139,22 +147,18 @@ function createParticle() {
     const particle = document.createElement('div');
     particle.className = 'particle';
 
-    // Random size (small)
     const size = Math.random() * 3 + 1;
     particle.style.width = `${size}px`;
     particle.style.height = `${size}px`;
 
-    // Initial position
     resetParticle(particle);
 
     particlesContainer.appendChild(particle);
 
-    // Animate
     animateParticle(particle);
 }
 
 function resetParticle(particle) {
-    // Random position
     const posX = Math.random() * 100;
     const posY = Math.random() * 100;
 
@@ -162,17 +166,12 @@ function resetParticle(particle) {
     particle.style.top = `${posY}%`;
     particle.style.opacity = '0';
 
-    return {
-        x: posX,
-        y: posY
-    };
+    return { x: posX, y: posY };
 }
 
 function animateParticle(particle) {
-    // Initial position
     const pos = resetParticle(particle);
 
-    // Random animation properties
     const duration = Math.random() * 10 + 10;
     const delay = Math.random() * 5;
 
@@ -180,56 +179,46 @@ function animateParticle(particle) {
         particle.style.transition = `all ${duration}s linear`;
         particle.style.opacity = Math.random() * 0.3 + 0.1;
 
-        // Move in a slight direction
         const moveX = pos.x + (Math.random() * 20 - 10);
-        const moveY = pos.y - Math.random() * 30; // Move upwards
+        const moveY = pos.y - Math.random() * 30;
 
         particle.style.left = `${moveX}%`;
         particle.style.top = `${moveY}%`;
 
-        // Reset after animation completes
         setTimeout(() => {
             animateParticle(particle);
         }, duration * 1000);
     }, delay * 1000);
 }
 
-// Mouse interaction for burst effect and sphere movement
 document.addEventListener('mousemove', (e) => {
-    // Create particles at mouse position
     const mouseX = (e.clientX / window.innerWidth) * 100;
     const mouseY = (e.clientY / window.innerHeight) * 100;
 
-    // Create temporary particle
     const particle = document.createElement('div');
     particle.className = 'particle';
 
-    // Small size
     const size = Math.random() * 4 + 2;
     particle.style.width = `${size}px`;
     particle.style.height = `${size}px`;
 
-    // Position at mouse
     particle.style.left = `${mouseX}%`;
     particle.style.top = `${mouseY}%`;
     particle.style.opacity = '0.6';
 
     particlesContainer.appendChild(particle);
 
-    // Animate outward
     setTimeout(() => {
         particle.style.transition = 'all 2s ease-out';
         particle.style.left = `${mouseX + (Math.random() * 10 - 5)}%`;
         particle.style.top = `${mouseY + (Math.random() * 10 - 5)}%`;
         particle.style.opacity = '0';
 
-        // Remove after animation
         setTimeout(() => {
             particle.remove();
         }, 2000);
     }, 10);
 
-    // Subtle movement of gradient spheres
     const spheres = document.querySelectorAll('.gradient-sphere');
     const moveX = (e.clientX / window.innerWidth - 0.5) * 5;
     const moveY = (e.clientY / window.innerHeight - 0.5) * 5;
