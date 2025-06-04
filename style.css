@@ -846,7 +846,7 @@ footer {
     vertical-align: middle;
 }
 
-/* --- MOBILE IMPROVEMENTS AND FIXES FOR TOPBAR & OVERLAP --- */
+/* --- MOBILE IMPROVEMENTS AND TOPBAR/THEME SLIDER OVERLAP FIXES --- */
 @media (max-width: 700px) {
   .sidebar-nav {
     position: fixed;
@@ -855,37 +855,62 @@ footer {
     height: 56px !important;
     width: 100vw !important;
     border-radius: 0 0 18px 18px !important;
-    z-index: 100;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    z-index: 100 !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background: var(--sidebar-bg, #181a21);
+    box-shadow: 0 7px 24px #23273a33;
+    padding: 0 !important;
   }
+
   .theme-slider-wrap {
-    position: fixed;
+    position: fixed !important;
     top: 56px !important;
-    left: 0;
-    right: 0;
+    left: 0 !important;
+    right: 0 !important;
     width: 100vw !important;
-    margin: 0 auto;
-    z-index: 101;
-    display: flex;
-    justify-content: center;
-    background: #23273ad0;
-    padding: 0.3em 0;
+    margin: 0 auto !important;
+    z-index: 101 !important;
+    display: flex !important;
+    justify-content: center !important;
+    background: #23273ad0 !important;
+    padding: 0.3em 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
   }
+
   .main-content,
   .sidebar-nav.expanded~.main-content,
   .sidebar-nav:not(.expanded):hover~.main-content {
-    margin-top: 112px !important; /* 56px navbar + 56px theme slider */
+    margin-top: 112px !important; /* nav (56) + slider (56) */
     margin-left: 0 !important;
     width: 100vw !important;
     min-height: calc(100vh - 112px) !important;
-    box-sizing: border-box;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
     padding: 0 !important;
+    background: none !important;
+    overflow-x: hidden !important;
   }
+
+  .section-page {
+    overflow-y: auto !important;
+    max-height: 80vh !important;
+    min-height: 70vh !important;
+    position: relative !important;
+    padding-bottom: 0.4em !important;
+    width: 100vw !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
   .about-section,
   .skills-section,
   .projects-section,
@@ -894,108 +919,148 @@ footer {
     max-width: 98vw !important;
     border-radius: 13px !important;
     margin: 0.7em auto !important;
-    box-sizing: border-box;
+    box-sizing: border-box !important;
     padding: 1em 0.7em !important;
+    background: var(--card-bg, #23273acc) !important;
+    box-shadow: 0 4px 16px #0004 !important;
+    border: 1px solid #23273a33 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
   }
+
   .profile-header {
     margin-top: 0.3em !important;
     gap: 0.2em !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
   }
-}
 
-    .profile-avatar {
-        width: 80px !important;
-        height: 80px !important;
-        border-width: 3px !important;
-        margin-bottom: 0.2em !important;
-    }
+  .profile-avatar {
+    width: 80px !important;
+    height: 80px !important;
+    border-width: 3px !important;
+    margin-bottom: 0.2em !important;
+    object-fit: cover !important;
+    background: #222 !important;
+  }
 
-    .profile-title {
-        font-size: 1.1em !important;
-    }
+  .profile-title {
+    font-size: 1.1em !important;
+    margin-bottom: 0.1em !important;
+    font-weight: 700 !important;
+    color: var(--accent, #ffe156) !important;
+    text-align: center !important;
+  }
 
-    .profile-subtitle {
-        font-size: 0.97em !important;
-    }
+  .profile-subtitle {
+    font-size: 0.97em !important;
+    color: #d6e6ff !important;
+    margin-bottom: 0.1em !important;
+    text-align: center !important;
+  }
 
-    .profile-socials a {
-        font-size: 1.15em !important;
-        padding: 0.18em 0.19em !important;
-    }
+  .profile-socials {
+    margin-bottom: 0.4em !important;
+    display: flex !important;
+    gap: 0.7em !important;
+    justify-content: center !important;
+  }
 
-    .about-section h2 {
-        font-size: 1.2em !important;
-        margin-bottom: 0.2em !important;
-    }
+  .profile-socials a {
+    font-size: 1.15em !important;
+    padding: 0.18em 0.19em !important;
+    border-radius: 50% !important;
+    background: #23273a !important;
+    color: var(--primary, #66b3ff) !important;
+    box-shadow: 0 2px 8px #3486eb22 !important;
+    transition: background .16s, color .16s !important;
+    text-decoration: none !important;
+  }
 
-    .about-section p {
-        font-size: 0.98em !important;
-        margin-bottom: 0.5em !important;
-    }
+  .about-section h2 {
+    font-size: 1.2em !important;
+    margin-bottom: 0.2em !important;
+    width: 100% !important;
+    color: var(--primary, #66b3ff) !important;
+    text-align: left !important;
+  }
 
-    .section-page {
-        overflow-y: auto !important;
-        max-height: 80vh !important;
-        min-height: 70vh !important;
-        position: relative !important;
-        padding-bottom: 0.4em !important;
-    }
+  .about-section p {
+    font-size: 0.98em !important;
+    margin-bottom: 0.5em !important;
+    color: #d6e6ff !important;
+    text-align: left !important;
+    width: 100% !important;
+  }
 
-    .skills-list,
-    .projects-grid {
-        max-width: 96vw !important;
-        gap: 0.6em !important;
-    }
+  .skills-list,
+  .projects-grid {
+    max-width: 96vw !important;
+    gap: 0.6em !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
 
-    .skill-card {
-        font-size: 0.95em !important;
-        padding: 0.55em 0.5em !important;
-        border-radius: 10px !important;
-    }
+  .skill-card {
+    font-size: 0.95em !important;
+    padding: 0.55em 0.5em !important;
+    border-radius: 10px !important;
+    background: #23273a !important;
+    color: var(--primary, #66b3ff) !important;
+    margin-bottom: 0.2em !important;
+    width: 100% !important;
+  }
 
-    .flipcard-container {
-        max-width: 96vw !important;
-        height: 98px !important;
-    }
+  .flipcard-container {
+    max-width: 96vw !important;
+    height: 98px !important;
+    margin: 0 auto !important;
+  }
 
-    .contact-card {
-        min-width: 95vw !important;
-        max-width: 96vw !important;
-        padding: 1em 0.3em 1em 0.3em !important;
-        border-radius: 12px !important;
-    }
+  .contact-card {
+    min-width: 95vw !important;
+    max-width: 96vw !important;
+    padding: 1em 0.3em 1em 0.3em !important;
+    border-radius: 12px !important;
+    background: #23273a !important;
+    box-shadow: 0 2px 8px #23273a33 !important;
+    margin: 0.5em auto !important;
+  }
 
-    footer {
-        font-size: 0.97em !important;
-        padding: 0.4em 0 !important;
-        margin-top: 0.8em !important;
-    }
+  footer {
+    font-size: 0.97em !important;
+    padding: 0.4em 0 !important;
+    margin-top: 0.8em !important;
+    text-align: center !important;
+    width: 100vw !important;
+    background: transparent !important;
+  }
 }
 
 /* Even smaller screens */
 @media (max-width: 400px) {
-
-    h1,
-    .profile-title {
-        font-size: 0.95em !important;
-    }
-
-    .about-section,
-    .skills-section,
-    .projects-section,
-    .contact-section,
-    .contact-card {
-        border-radius: 8px !important;
-        padding: 0.5em 0.1em !important;
-    }
-
-    .flipcard-container {
-        height: 70px !important;
-    }
-
-    .skill-card {
-        font-size: 0.85em !important;
-    }
+  h1,
+  .profile-title {
+    font-size: 0.95em !important;
+  }
+  .about-section,
+  .skills-section,
+  .projects-section,
+  .contact-section,
+  .contact-card {
+    border-radius: 8px !important;
+    padding: 0.5em 0.1em !important;
+  }
+  .flipcard-container {
+    height: 70px !important;
+  }
+  .skill-card {
+    font-size: 0.85em !important;
+  }
 }
 
 /* Make the animated background not block scrolling or touch */
@@ -1005,6 +1070,8 @@ footer {
 .glow,
 .gradient-sphere,
 .particles-container {
-    pointer-events: none !important;
+  pointer-events: none !important;
+  touch-action: none !important;
+}
     touch-action: none !important;
 }
