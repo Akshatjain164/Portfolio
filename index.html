@@ -31,6 +31,14 @@
             <button class="nav-btn" data-section="contact" aria-label="Contact"><i
                     class="fa-solid fa-envelope"></i><span>Contact</span></button>
         </nav>
+
+        <div class="theme-slider-wrap">
+            <span class="slider-label"><i class="fa-solid fa-palette"></i> Theme</span>
+            <input type="range" min="0" max="100" value="0" class="theme-slider" id="theme-slider"
+                aria-label="Theme color" />
+            <span class="slider-color-dot" id="slider-dot"></span>
+        </div>
+
         <div class="main-content" id="main-content" role="main">
             <div class="content-area">
                 <section class="section-page about-section active" id="about-page" tabindex="0">
@@ -225,13 +233,8 @@
                 </footer>
             </div>
         </div>
-        <div class="theme-slider-wrap">
-            <span class="slider-label"><i class="fa-solid fa-palette"></i> Theme</span>
-            <input type="range" min="0" max="100" value="0" class="theme-slider" id="theme-slider"
-                aria-label="Theme color" />
-            <span class="slider-color-dot" id="slider-dot"></span>
-        </div>
     </div>
+
     <script src="script.js"></script>
     <script src="particles.js"></script>
 </body>
