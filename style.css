@@ -24,7 +24,7 @@
     --section-pad: 2em 1.5em;
 }
 
-/* --- Modern gradient animated background and particles --- */
+/* === Modern Gradient Spheres, Grid, Glow, Noise, and Interactive Particles === */
 body {
     background: linear-gradient(120deg, var(--gradient1), var(--gradient2));
     background-size: 200% 200%;
@@ -54,6 +54,7 @@ body {
     filter: blur(60px);
     will-change: transform;
 }
+
 .sphere-1 {
     width: 40vw;
     height: 40vw;
@@ -62,6 +63,7 @@ body {
     left: -10%;
     animation: float-1 15s ease-in-out infinite alternate;
 }
+
 .sphere-2 {
     width: 45vw;
     height: 45vw;
@@ -70,6 +72,7 @@ body {
     right: -10%;
     animation: float-2 18s ease-in-out infinite alternate;
 }
+
 .sphere-3 {
     width: 30vw;
     height: 30vw;
@@ -78,6 +81,7 @@ body {
     left: 20%;
     animation: float-3 20s ease-in-out infinite alternate;
 }
+
 @keyframes float-1 {
     0% { transform: translate(0, 0) scale(1);}
     100% { transform: translate(10%, 10%) scale(1.1);}
@@ -725,141 +729,140 @@ footer {
     vertical-align: middle;
 }
 
-/* --- MOBILE IMPROVEMENTS --- */
+/* --- MOBILE IMPROVEMENTS AND FIXES FOR TOPBAR & OVERLAP --- */
 @media (max-width: 700px) {
-    body {
-        overflow-x: hidden;
-        min-height: 100vh;
-        height: auto;
-    }
-    .layout,
-    .main-content,
-    .content-area {
-        display: block;
-        min-height: auto;
-        height: auto;
-        width: 100vw;
-        max-width: 100vw;
-        overflow: visible;
-        padding: 0;
-    }
     .sidebar-nav,
     .sidebar-nav.expanded,
     .sidebar-nav:not(.expanded):hover {
         flex-direction: row;
-        width: 100vw;
-        height: 64px;
-        min-height: 64px;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: unset;
-        border-radius: 0 0 var(--sidebar-radius) var(--sidebar-radius);
-        box-shadow: 0 7px 32px #23273a33;
-        gap: 0.4em;
+        width: 100vw !important;
+        height: 56px !important;
+        min-height: 56px !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: 0 !important;
+        bottom: unset !important;
+        border-radius: 0 0 18px 18px !important;
+        box-shadow: 0 7px 24px #23273a33;
+        gap: 0.5em !important;
         justify-content: center;
         z-index: 100;
-        padding: 0.4em 0.2em 0.2em 0.2em;
+        padding: 0.2em 0.1em 0.1em 0.1em;
         position: fixed;
     }
     .main-content,
     .sidebar-nav.expanded~.main-content,
     .sidebar-nav:not(.expanded):hover~.main-content {
-        margin-left: 0;
-        margin-top: 68px;
-        width: 100vw;
-        padding: 0;
+        margin-left: 0 !important;
+        margin-top: 62px !important;
+        width: 100vw !important;
+        padding: 0 !important;
     }
-    .content-area {
-        padding: 0;
-        margin: 0;
+    .theme-slider-wrap {
+        position: fixed;
+        top: 64px !important;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 98vw;
+        max-width: 98vw;
+        z-index: 101;
+        justify-content: center;
+        padding: 0.3em 0.6em 0.3em 0.6em;
     }
     .about-section,
     .skills-section,
     .projects-section,
     .contact-section {
-        min-width: 98vw;
-        max-width: 99vw;
-        width: 98vw;
-        min-height: unset;
-        max-height: unset;
-        padding: 1.1em 0.4em 1.1em 0.4em !important;
-        border-radius: 20px;
-        box-shadow: 0 2px 10px #23273a33;
-        margin: 0.5em auto;
-        overflow-x: hidden;
-    }
-    .skills-section {
-        padding: 1.2em 0.3em !important;
-    }
-    .profile-header {
-        gap: 0.5em;
-        margin-bottom: 1.1em;
-    }
-    h1, .profile-title {
-        font-size: 1.4em !important;
-    }
-    .profile-subtitle,
-    .about-section p,
-    .contact-content p {
+        min-width: 92vw !important;
+        max-width: 96vw !important;
+        width: 96vw !important;
+        padding: 1em 0.4em 1em 0.4em !important;
+        border-radius: 13px !important;
+        margin: 0.5em auto !important;
+        box-sizing: border-box;
         font-size: 1em !important;
     }
-    .skills-list, .projects-grid {
-        gap: 0.7em;
-        max-width: 98vw;
+    .profile-header {
+        gap: 0.3em !important;
+        margin-bottom: 0.7em !important;
     }
-    .skill-card {
-        font-size: 0.98em;
-        padding: 0.7em 0.9em;
-        border-radius: 19px;
+    .profile-avatar {
+        width: 80px !important;
+        height: 80px !important;
+        border-width: 3px !important;
+        margin-bottom: 0.2em !important;
     }
-    .flipcard-container {
-        max-width: 96vw;
-        height: 130px;
+    .profile-title {
+        font-size: 1.1em !important;
     }
-    .flipcard-title {
-        font-size: 1em;
+    .profile-subtitle {
+        font-size: 0.97em !important;
     }
-    .contact-card {
-        min-width: 96vw;
-        max-width: 97vw;
-        padding: 1.2em 0.6em 1.2em 0.6em;
-        border-radius: 18px;
+    .profile-socials a {
+        font-size: 1.15em !important;
+        padding: 0.18em 0.19em !important;
+    }
+    .about-section h2 {
+        font-size: 1.2em !important;
+        margin-bottom: 0.2em !important;
+    }
+    .about-section p {
+        font-size: 0.98em !important;
+        margin-bottom: 0.5em !important;
     }
     .section-page {
-        overflow-y: auto;
-        max-height: 82vh;
-        min-height: 74vh;
+        overflow-y: auto !important;
+        max-height: 80vh !important;
+        min-height: 70vh !important;
         position: relative !important;
-        padding-bottom: 0.7em;
+        padding-bottom: 0.4em !important;
     }
-    .theme-slider-wrap {
-        top: 74px;
-        right: 8vw;
+    .skills-list, .projects-grid {
+        max-width: 96vw !important;
+        gap: 0.6em !important;
+    }
+    .skill-card {
+        font-size: 0.95em !important;
+        padding: 0.55em 0.5em !important;
+        border-radius: 10px !important;
+    }
+    .flipcard-container {
+        max-width: 96vw !important;
+        height: 98px !important;
+    }
+    .contact-card {
+        min-width: 95vw !important;
+        max-width: 96vw !important;
+        padding: 1em 0.3em 1em 0.3em !important;
+        border-radius: 12px !important;
     }
     footer {
-        font-size: 1em;
-        padding: 0.5em 0;
-        margin-top: 1em;
+        font-size: 0.97em !important;
+        padding: 0.4em 0 !important;
+        margin-top: 0.8em !important;
     }
 }
+
+/* Even smaller screens */
 @media (max-width: 400px) {
-    h1, .profile-title { font-size: 1.1em !important;}
+    h1, .profile-title { font-size: 0.95em !important;}
     .about-section,
     .skills-section,
     .projects-section,
     .contact-section,
     .contact-card {
-        border-radius: 10px;
-        padding: 0.8em 0.2em !important;
+        border-radius: 8px !important;
+        padding: 0.5em 0.1em !important;
     }
     .flipcard-container {
-        height: 95px;
+        height: 70px !important;
     }
     .skill-card {
-        font-size: 0.93em;
+        font-size: 0.85em !important;
     }
 }
+
 /* Make the animated background not block scrolling or touch */
 .gradient-background,
 .noise-overlay,
