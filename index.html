@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
@@ -8,7 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
     <div class="gradient-background">
         <div class="gradient-sphere sphere-1"></div>
@@ -21,49 +19,43 @@
     </div>
 
     <div class="layout">
-        <!-- Fixed NavBar at the very top -->
+        <!-- Sidebar Navigation (fixed/expandable on desktop, fixed topbar on mobile) -->
         <nav class="sidebar-nav" id="sidebar-nav" aria-label="Main navigation">
-            <button class="nav-btn active" data-section="about" aria-label="About"><i
-                    class="fa-solid fa-user"></i><span>About</span></button>
-            <button class="nav-btn" data-section="skills" aria-label="Skills"><i
-                    class="fa-solid fa-laptop-code"></i><span>Skills</span></button>
-            <button class="nav-btn" data-section="projects" aria-label="Projects"><i
-                    class="fa-solid fa-diagram-project"></i><span>Projects</span></button>
-            <button class="nav-btn" data-section="contact" aria-label="Contact"><i
-                    class="fa-solid fa-envelope"></i><span>Contact</span></button>
+            <button class="nav-btn active" data-section="about" aria-label="About"><i class="fa-solid fa-user"></i><span>About</span></button>
+            <button class="nav-btn" data-section="skills" aria-label="Skills"><i class="fa-solid fa-laptop-code"></i><span>Skills</span></button>
+            <button class="nav-btn" data-section="projects" aria-label="Projects"><i class="fa-solid fa-diagram-project"></i><span>Projects</span></button>
+            <button class="nav-btn" data-section="contact" aria-label="Contact"><i class="fa-solid fa-envelope"></i><span>Contact</span></button>
         </nav>
 
-        <!-- Fixed Theme Slider directly below nav -->
+        <!-- Theme Slider (fixed near nav on desktop, below nav on mobile) -->
         <div class="theme-slider-wrap">
             <span class="slider-label"><i class="fa-solid fa-palette"></i> Theme</span>
-            <input type="range" min="0" max="100" value="0" class="theme-slider" id="theme-slider"
-                aria-label="Theme color" />
+            <input type="range" min="0" max="100" value="0" class="theme-slider" id="theme-slider" aria-label="Theme color" />
             <span class="slider-color-dot" id="slider-dot"></span>
         </div>
 
-        <!-- Main content starts below nav and theme slider -->
+        <!-- Main Content Area -->
         <div class="main-content" id="main-content" role="main">
             <div class="content-area">
+                <!-- About Section -->
                 <section class="section-page about-section active" id="about-page" tabindex="0">
                     <div class="profile-header">
                         <img class="profile-avatar" src="my profile pic.jpg" alt="Akshat Jain profile photo" />
                         <h1 class="profile-title">Akshat Jain</h1>
                         <p class="profile-subtitle">Aspiring Developer &amp; Problem Solver</p>
                         <div class="profile-socials">
-                            <a href="https://github.com/Akshatjain164" title="GitHub" target="_blank" rel="noopener"><i
-                                    class="fab fa-github"></i></a>
-                            <a href="https://www.linkedin.com/in/akshat-jain-4b18a6356/" title="LinkedIn"
-                                target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://github.com/Akshatjain164" title="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/akshat-jain-4b18a6356/" title="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
                         </div>
                     </div>
                     <h2>About Me</h2>
                     <p>
                         Hi, I'm Akshat! I code, design, and thrive on creative challenges.<br>
-                        Passionate about <b>web development</b>, <b>problem solving</b>, and building <b>interactive,
-                            professional digital experiences</b>.<br>
+                        Passionate about <b>web development</b>, <b>problem solving</b>, and building <b>interactive, professional digital experiences</b>.<br>
                         I love turning ideas into impact, collaborating, and always learning something new.
                     </p>
                 </section>
+                <!-- Skills Section -->
                 <section class="section-page skills-section" id="skills-page" tabindex="0">
                     <h2>Skills</h2>
                     <div class="skills-list">
@@ -73,8 +65,7 @@
                             <span class="arrow"><i class="fa-solid fa-chevron-right"></i></span>
                             <div class="skill-details">
                                 <p>
-                                    <b>Intermediate</b> – Used Python for web apps, automation, and problem
-                                    solving. Familiar libraries like Flask, NumPy, and code optimization.
+                                    <b>Intermediate</b> – Used Python for web apps, automation, and problem solving. Familiar libraries like Flask, NumPy, and code optimization.
                                 </p>
                             </div>
                         </div>
@@ -84,8 +75,7 @@
                             <span class="arrow"><i class="fa-solid fa-chevron-right"></i></span>
                             <div class="skill-details">
                                 <p>
-                                    <b>Expert</b> – Semantic, accessible, and SEO-friendly HTML. Built complex layouts
-                                    and SPAs with modern HTML5 features.
+                                    <b>Expert</b> – Semantic, accessible, and SEO-friendly HTML. Built complex layouts and SPAs with modern HTML5 features.
                                 </p>
                             </div>
                         </div>
@@ -95,8 +85,7 @@
                             <span class="arrow"><i class="fa-solid fa-chevron-right"></i></span>
                             <div class="skill-details">
                                 <p>
-                                    <b>Advanced</b> – Responsive, animated UIs with Flex, Grid, modern selectors, and
-                                    preprocessors. Mastered custom themes and transitions.
+                                    <b>Advanced</b> – Responsive, animated UIs with Flex, Grid, modern selectors, and preprocessors. Mastered custom themes and transitions.
                                 </p>
                             </div>
                         </div>
@@ -106,8 +95,7 @@
                             <span class="arrow"><i class="fa-solid fa-chevron-right"></i></span>
                             <div class="skill-details">
                                 <p>
-                                    <b>Intermediate</b> – DOM, ES6+, async, and SPA logic. Created interactive
-                                    games and utilities.
+                                    <b>Intermediate</b> – DOM, ES6+, async, and SPA logic. Created interactive games and utilities.
                                 </p>
                             </div>
                         </div>
@@ -117,8 +105,7 @@
                             <span class="arrow"><i class="fa-solid fa-chevron-right"></i></span>
                             <div class="skill-details">
                                 <p>
-                                    <b>Competitive</b> – Participated in coding challenges, applied algorithms to real
-                                    projects, and excelled in debugging and optimization.
+                                    <b>Competitive</b> – Participated in coding challenges, applied algorithms to real projects, and excelled in debugging and optimization.
                                 </p>
                             </div>
                         </div>
@@ -128,8 +115,7 @@
                             <span class="arrow"><i class="fa-solid fa-chevron-right"></i></span>
                             <div class="skill-details">
                                 <p>
-                                    <b>Proficient</b> – Version control, collaboration, PR reviews, and CI/CD basics.
-                                    Used Git for all personal and team projects.
+                                    <b>Proficient</b> – Version control, collaboration, PR reviews, and CI/CD basics. Used Git for all personal and team projects.
                                 </p>
                             </div>
                         </div>
@@ -139,13 +125,13 @@
                             <span class="arrow"><i class="fa-solid fa-chevron-right"></i></span>
                             <div class="skill-details">
                                 <p>
-                                    <b>Expert</b> – Fully responsive UIs, mobile-first layouts, and accessibility.
-                                    Tested on various devices and browsers.
+                                    <b>Expert</b> – Fully responsive UIs, mobile-first layouts, and accessibility. Tested on various devices and browsers.
                                 </p>
                             </div>
                         </div>
                     </div>
                 </section>
+                <!-- Projects Section -->
                 <section class="section-page projects-section" id="projects-page" tabindex="0">
                     <h2>Projects</h2>
                     <div class="projects-grid">
@@ -154,8 +140,7 @@
                                 <div class="flipcard-front">
                                     <div class="flipcard-title">Tic Tac Toe</div>
                                     <div>Classic Tic Tac Toe in an interactive web UI.</div>
-                                    <a href="tictactoe.html" target="_blank" rel="noopener" class="flipcard-link">Try
-                                        it</a>
+                                    <a href="tictactoe.html" target="_blank" rel="noopener" class="flipcard-link">Try it</a>
                                 </div>
                                 <div class="flipcard-back">
                                     <div><b>Details:</b></div>
@@ -171,8 +156,7 @@
                                 <div class="flipcard-front">
                                     <div class="flipcard-title">World Smithery</div>
                                     <div>Fast-paced word puzzle: make words from scrambled letters.</div>
-                                    <a href="WORDsmithery.html" target="_blank" rel="noopener" class="flipcard-link">Try
-                                        it</a>
+                                    <a href="WORDsmithery.html" target="_blank" rel="noopener" class="flipcard-link">Try it</a>
                                 </div>
                                 <div class="flipcard-back">
                                     <div><b>Details:</b></div>
@@ -201,6 +185,7 @@
                         </div>
                     </div>
                 </section>
+                <!-- Contact Section -->
                 <section class="section-page contact-section" id="contact-page" tabindex="0">
                     <div class="contact-card">
                         <div class="contact-image">
@@ -208,38 +193,25 @@
                         </div>
                         <div class="contact-content">
                             <h2>Contact</h2>
-                            <p>Let's build something great together.<br>Feel free to reach out by email or connect on my
-                                social profiles!</p>
-                            <br>
-                            <br />
-                            <a class="email-btn big" href="mailto:ajain04072007@gmail.com" target="_blank"
-                                rel="noopener">
-                                <i class="fa-solid fa-envelope"></i>
-                                Email Me
+                            <p>Let's build something great together.<br>Feel free to reach out by email or connect on my social profiles!</p>
+                            <a class="email-btn big" href="mailto:ajain04072007@gmail.com" target="_blank" rel="noopener">
+                                <i class="fa-solid fa-envelope"></i> Email Me
                             </a>
-                            <br>
-
-                            <br />
-                            <br>
-                            <br />
                             <div class="contact-socials">
-                                <a href="https://github.com/Akshatjain164" title="GitHub" target="_blank"
-                                    rel="noopener"><i class="fab fa-github"></i></a>
-                                <a href="https://www.linkedin.com/in/akshat-jain-4b18a6356/" title="LinkedIn"
-                                    target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                                <a href="https://github.com/Akshatjain164" title="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                                <a href="https://www.linkedin.com/in/akshat-jain-4b18a6356/" title="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
                             </div>
                         </div>
                     </div>
                 </section>
+                <!-- Footer -->
                 <footer>
                     <p>&copy; 2025 Akshat Jain. All rights reserved.</p>
                 </footer>
             </div>
         </div>
     </div>
-
     <script src="script.js"></script>
     <script src="particles.js"></script>
 </body>
-
 </html>
