@@ -24,7 +24,7 @@
     --section-pad: 2em 1.5em;
 }
 
-/* === General Body and Background Setup === */
+/* === Modern Gradient Spheres, Grid, Glow, Noise, and Interactive Particles === */
 body {
     background: linear-gradient(120deg, var(--gradient1), var(--gradient2));
     background-size: 200% 200%;
@@ -37,10 +37,10 @@ body {
     position: relative;
 }
 
-/* Gradient Background and Spheres */
 .gradient-background {
     position: fixed;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
     z-index: 0;
@@ -83,37 +83,58 @@ body {
 }
 
 @keyframes float-1 {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(10%, 10%) scale(1.1); }
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(10%, 10%) scale(1.1);
+    }
 }
 
 @keyframes float-2 {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(-10%, -5%) scale(1.15); }
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(-10%, -5%) scale(1.15);
+    }
 }
 
 @keyframes float-3 {
-    0% { transform: translate(0, 0) scale(1); opacity: 0.3; }
-    100% { transform: translate(-5%, 10%) scale(1.05); opacity: 0.6; }
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translate(-5%, 10%) scale(1.05);
+        opacity: 0.6;
+    }
 }
 
 .grid-overlay {
     position: absolute;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     background-size: 40px 40px;
     background-image:
-        linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     z-index: 2;
     pointer-events: none;
 }
 
 .glow {
     position: absolute;
-    width: 40vw; height: 40vh;
-    background: radial-gradient(circle, rgba(72,0,255,0.15), transparent 70%);
-    top: 50%; left: 50%;
+    width: 40vw;
+    height: 40vh;
+    background: radial-gradient(circle, rgba(72, 0, 255, 0.15), transparent 70%);
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
     animation: pulse 8s infinite alternate;
@@ -125,6 +146,7 @@ body {
         opacity: 0.3;
         transform: translate(-50%, -50%) scale(0.9);
     }
+
     100% {
         opacity: 0.7;
         transform: translate(-50%, -50%) scale(1.1);
@@ -133,19 +155,22 @@ body {
 
 .noise-overlay {
     position: absolute;
-    top:0; left:0;
-    width: 100vw; height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     opacity: 0.05;
     z-index: 5;
     pointer-events: none;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Particle container & particle styling */
 .particles-container {
     position: absolute;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     z-index: 3;
     pointer-events: none;
 }
@@ -157,12 +182,12 @@ body {
     opacity: 0;
     pointer-events: none;
     will-change: transform, opacity;
-    box-shadow: 0 0 8px 2px rgba(255,255,255,0.45);
+    box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.45);
     filter: blur(0.5px);
     transition: all 0.2s;
 }
 
-/* Layout */
+
 .layout {
     display: flex;
     height: 100vh;
@@ -172,11 +197,13 @@ body {
     position: relative;
 }
 
-/* Sidebar - vertical on desktop */
 .sidebar-nav {
     height: 100vh;
+    min-height: 100vh;
     position: fixed;
-    top: 0; left: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
     width: var(--sidebar-width-collapsed);
     background: var(--sidebar-bg);
     box-shadow: var(--sidebar-shadow);
@@ -209,10 +236,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Center icon in collapsed mode */
     gap: 1.1em;
     border-radius: 50%;
+    /* Make button round */
     min-width: 56px;
     min-height: 56px;
+    /* Square and bigger for glow */
     width: 56px;
     height: 56px;
     font-size: 1.5em;
@@ -224,17 +254,18 @@ body {
     padding: 0;
 }
 
-/* Expanded sidebar nav button pill shape */
+/* Expanded sidebar: button is pill-shaped and label is shown */
 .sidebar-nav.expanded .nav-btn,
 .sidebar-nav:not(.expanded):hover .nav-btn {
     min-width: 260px;
     width: 260px;
     justify-content: flex-start;
     border-radius: 48px;
+    /* pill shape for expanded */
     padding-left: 1.1em;
 }
 
-/* Nav btn label styling */
+/* Label styling for nav buttons */
 .nav-btn span {
     opacity: 0;
     width: 0;
@@ -258,22 +289,23 @@ body {
     transition: opacity var(--transition), width var(--transition);
 }
 
-/* Active & hover nav button styles */
+/* Center the yellow shadow glow */
 .nav-btn.active,
 .nav-btn:focus,
 .nav-btn:hover {
     background: var(--active-bg);
     color: var(--text-accent);
     box-shadow: 0 0 24px 0 #ffe15688;
+    /* Even, centered yellow glow */
     outline: none;
 }
 
-/* Hover expand on desktop */
 @media (hover:hover) and (pointer:fine) {
     .sidebar-nav:not(.expanded):hover {
         width: var(--sidebar-width-expanded);
         background: var(--sidebar-bg);
     }
+
     .sidebar-nav:not(.expanded):hover .nav-btn {
         min-width: 260px;
         width: 260px;
@@ -281,6 +313,7 @@ body {
         border-radius: 48px;
         justify-content: flex-start;
     }
+
     .sidebar-nav:not(.expanded):hover .nav-btn span {
         opacity: 1;
         width: auto;
@@ -288,7 +321,6 @@ body {
     }
 }
 
-/* Main content */
 .main-content {
     flex: 1 1 auto;
     width: 100vw;
@@ -301,9 +333,39 @@ body {
     overflow: hidden;
 }
 
-.sidebar-nav.expanded ~ .main-content,
-.sidebar-nav:not(.expanded):hover ~ .main-content {
+.sidebar-nav.expanded~.main-content,
+.sidebar-nav:not(.expanded):hover~.main-content {
     margin-left: var(--sidebar-width-expanded);
+}
+
+@media (max-width: 700px) {
+
+    .sidebar-nav,
+    .sidebar-nav.expanded,
+    .sidebar-nav:not(.expanded):hover {
+        flex-direction: row;
+        width: 100vw;
+        height: 70px;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: unset;
+        border-radius: 0 0 var(--sidebar-radius) var(--sidebar-radius);
+        box-shadow: 0 7px 32px #23273a33;
+        gap: 0.8em;
+        justify-content: center;
+        z-index: 100;
+        padding: 1em 0.3em 0.5em 0.3em;
+    }
+
+    .main-content,
+    .sidebar-nav.expanded~.main-content,
+    .sidebar-nav:not(.expanded):hover~.main-content {
+        margin-left: 0;
+        margin-top: 80px;
+        width: 100vw;
+        padding: 0;
+    }
 }
 
 .content-area {
@@ -321,7 +383,6 @@ body {
     padding: 0;
 }
 
-/* Section pages transitions */
 .section-page {
     grid-column: 1/2;
     grid-row: 1/2;
@@ -338,7 +399,6 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    z-index: 1;
 }
 
 .section-page.active {
@@ -348,9 +408,9 @@ body {
     position: relative;
     z-index: 2;
     animation: fadeInUp .6s;
+    display: flex;
 }
 
-/* Profile header */
 .profile-header {
     display: flex;
     flex-direction: column;
@@ -368,6 +428,7 @@ body {
     box-shadow: 0 4px 24px #3486eb55;
     object-fit: cover;
     object-position: 50% 7%;
+    /* Show face, not chest: fixed to 7% */
     background: #eee;
     margin-bottom: 0.5em;
     transition: border .3s;
@@ -413,7 +474,6 @@ body {
     transform: scale(1.13);
 }
 
-/* Section cards */
 .about-section,
 .skills-section,
 .projects-section,
@@ -436,9 +496,11 @@ body {
 
 .skills-section {
     padding: 3em 5em !important;
+    /* Or any value you want */
 }
 
 @media (max-width: 700px) {
+
     .about-section,
     .skills-section,
     .projects-section,
@@ -449,12 +511,12 @@ body {
         max-height: 90vh;
         padding: 1.2em 0.7em 1.2em 0.7em;
     }
+
     .skills-section {
         padding: 2em 1em !important;
     }
 }
 
-/* Headings */
 .about-section h2,
 .skills-section h2,
 .projects-section h2,
@@ -466,7 +528,6 @@ body {
     font-size: 1.7em;
 }
 
-/* Paragraphs */
 .about-section p,
 .contact-section p {
     color: #d6e6ff;
@@ -474,7 +535,6 @@ body {
     margin-bottom: 0.9em;
 }
 
-/* Skills List */
 .skills-list {
     display: flex;
     flex-direction: column;
@@ -483,7 +543,6 @@ body {
     margin-top: 1.2em;
 }
 
-/* Skill Cards */
 .skill-card {
     background: var(--skill-bg);
     color: var(--primary);
@@ -553,7 +612,6 @@ body {
     margin-top: 0.2em;
 }
 
-/* Projects grid */
 .projects-grid {
     display: flex;
     flex-direction: column;
@@ -563,7 +621,6 @@ body {
     margin-top: 1.3em;
 }
 
-/* Flipcard Container */
 .flipcard-container {
     perspective: 1200px;
     width: 100%;
@@ -572,7 +629,6 @@ body {
     margin: 0 auto;
 }
 
-/* Flipcard */
 .flipcard {
     width: 100%;
     height: 100%;
@@ -586,11 +642,11 @@ body {
     transform: rotateY(180deg);
 }
 
-/* Flipcard Front & Back */
 .flipcard-front,
 .flipcard-back {
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
@@ -613,7 +669,6 @@ body {
     align-items: flex-start;
 }
 
-/* Flipcard Title */
 .flipcard-title {
     font-size: 1.18em;
     font-weight: 700;
@@ -621,7 +676,6 @@ body {
     color: var(--primary);
 }
 
-/* Flipcard Link */
 .flipcard-link {
     margin-top: 0.7em;
     background: var(--primary);
@@ -641,6 +695,7 @@ body {
 }
 
 @media (max-width: 700px) {
+
     .projects-grid,
     .skills-list {
         max-width: 92vw;
@@ -649,168 +704,222 @@ body {
     .flipcard-container {
         max-width: 92vw;
     }
+}
 
-    /* Apply mobile sidebar fixes and content adjustments */
-    .sidebar-nav,
-    .sidebar-nav.expanded,
-    .sidebar-nav:not(.expanded):hover {
-        flex-direction: row;
-        width: 100vw;
-        height: 70px;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: unset;
-        border-radius: 0 0 var(--sidebar-radius) var(--sidebar-radius);
-        box-shadow: 0 7px 32px #23273a33;
-        gap: 0.8em;
-        justify-content: center;
-        z-index: 100;
-        padding: 1em 0.3em 0.5em 0.3em;
-        overflow-x: auto;
-        overflow-y: hidden;
-        scrollbar-width: thin;
+.contact-section {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 !important;
+    background: none;
+    box-shadow: none;
+}
+
+.contact-card {
+    background: linear-gradient(120deg, #1a1c26 50%, #23273a 100%);
+    border-radius: 32px;
+    box-shadow: 0 4px 16px #000a, 0 2px 8px #23273a55;
+    padding: 2.2em 2.2em 2em 2.2em;
+    min-width: 330px;
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: visible;
+}
+
+.contact-image {
+    margin-bottom: 1em;
+}
+
+.contact-image img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 4px solid var(--accent);
+    box-shadow: 0 4px 24px #3486eb55;
+    object-fit: cover;
+    object-position: 50% 7%;
+    background: #eee;
+    margin-bottom: 0.5em;
+    transition: border .3s;
+}
+
+.contact-content h2 {
+    color: var(--accent);
+    margin-bottom: 0.4em;
+    font-size: 1.55em;
+    letter-spacing: 0.02em;
+}
+
+.contact-content p {
+    color: #b3c7e6;
+    margin-bottom: 1.3em;
+    font-size: 1.13em;
+}
+
+.email-btn,
+.email-btn.big {
+    font-size: 1.17em;
+    padding: 1em 2.8em;
+    background: linear-gradient(90deg, #66b3ff 60%, #ffe156 100%);
+    border-radius: 32px;
+    box-shadow: 0 4px 18px #66b3ff55, 0 1.5px 8px #ffe15622;
+    margin-bottom: 1.1em;
+    text-decoration: none;
+    /* No underline */
+    color: #23273a;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    transition: background .18s, color .18s;
+    cursor: pointer;
+}
+
+.email-btn.big i {
+    font-size: 1.25em;
+    margin-right: 0.7em;
+}
+
+.contact-socials {
+    margin-top: 0.7em;
+    display: flex;
+    gap: 1.5em;
+    justify-content: center;
+}
+
+.contact-socials a {
+    color: #ffe156;
+    background: #23273a;
+    border-radius: 50%;
+    font-size: 1.5em;
+    padding: 0.3em 0.35em;
+    box-shadow: 0 2px 8px #23273a66;
+    transition: background .16s, color .16s, transform .13s;
+}
+
+.contact-socials a:hover {
+    background: #ffe156;
+    color: #23273a;
+    transform: scale(1.13);
+}
+
+footer {
+    color: #aabed3;
+    font-size: 1.08em;
+    margin-top: 1.7rem;
+    padding: 0.6rem 0 0 0;
+    opacity: 0.85;
+    text-align: center;
+    text-shadow: 0 1px 6px #23273a60;
+    background: var(--footer-bg);
+    width: 100%;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
     }
 
-    .sidebar-nav::-webkit-scrollbar {
-        height: 6px;
-    }
-
-    .sidebar-nav::-webkit-scrollbar-thumb {
-        background-color: var(--primary);
-        border-radius: 3px;
-    }
-
-    .sidebar-nav .nav-btn,
-    .sidebar-nav.expanded .nav-btn,
-    .sidebar-nav:not(.expanded):hover .nav-btn {
-        min-width: 56px;
-        width: 56px;
-        height: 56px;
-        margin: 0 0.3em;
-        border-radius: 50%;
-        padding: 0;
-        font-size: 1.3em;
-        justify-content: center !important;
-    }
-
-    .sidebar-nav .nav-btn span {
-        display: none !important;
-    }
-
-    .main-content,
-    .sidebar-nav.expanded ~ .main-content,
-    .sidebar-nav:not(.expanded):hover ~ .main-content {
-        margin: 0;
-        padding-bottom: 80px;
-        width: 100vw;
-        height: calc(100vh - 70px);
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .content-area {
-        max-width: 100vw;
-        max-height: 100%;
-        padding: 0 0.5em;
-        overflow-y: auto;
-    }
-
-    .section-page {
-        position: relative !important;
-        height: auto !important;
-        max-height: none !important;
-        transform: none !important;
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        display: none;
-    }
-
-    .section-page.active {
-        display: flex !important;
-    }
-
-    .about-section,
-    .skills-section,
-    .projects-section,
-    .contact-section {
-        min-width: auto !important;
-        max-width: 95vw !important;
-        min-height: auto !important;
-        max-height: none !important;
-        margin: 1em auto;
-        padding: 1em !important;
-    }
-
-    .skills-list {
-        gap: 0.6em !important;
-    }
-
-    .flipcard-container {
-        max-width: 95vw !important;
-        height: auto !important;
-        margin: 0.5em auto;
-    }
-
-    .flipcard {
-        height: auto !important;
-        aspect-ratio: 2.1 / 1;
-        transition: transform 0.6s ease !important;
-    }
-
-    footer {
-        font-size: 0.85rem;
-        margin: 1rem 0 0 0;
-        padding: 0 0 1rem 0;
-    }
-
-    .theme-slider-wrap {
-        top: auto !important;
-        bottom: 90px !important;
-        right: 50% !important;
-        transform: translateX(50%);
-        box-shadow: 0 2px 10px #23273a80;
-    }
-
-    .skills-section {
-        padding: 1.5em 1em !important;
-    }
-
-    /* Disable some heavy overlays on mobile */
-    .glow,
-    .noise-overlay,
-    .grid-overlay {
-        display: none !important;
-    }
-
-    /* Make particles fixed full screen and non-blocking on mobile */
-    .particles-container {
-        position: fixed !important;
-        width: 100vw !important;
-        height: 100vh !important;
-        top: 0; left: 0;
-        pointer-events: none !important;
-        z-index: 1;
+    to {
+        opacity: 1;
+        transform: none;
     }
 }
 
-/* Accessibility Enhancements: Focus outlines for keyboard nav */
-.nav-btn, .skill-card, .flipcard, .email-btn {
-    outline-offset: 3px;
+.theme-slider-wrap {
+    position: fixed;
+    top: 30px;
+    right: 36px;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    background: #23273ad0;
+    border-radius: 18px;
+    box-shadow: 0 2px 10px #23273a80;
+    padding: 0.4em 1.1em 0.4em 1em;
+    transition: background .18s;
+    backdrop-filter: blur(3px);
 }
 
-.nav-btn:focus-visible,
-.skill-card:focus-visible,
-.flipcard:focus-visible,
-.email-btn:focus-visible {
-    outline: 3px solid var(--primary);
-    box-shadow: 0 0 12px var(--primary);
+.slider-label {
+    color: var(--accent);
+    font-weight: 600;
+    margin-right: 0.7em;
+    font-size: 1.1em;
+    letter-spacing: 0.03em;
 }
 
-/* Hide outlines on mouse click but keep for keyboard */
-.nav-btn:focus:not(:focus-visible),
-.skill-card:focus:not(:focus-visible),
-.flipcard:focus:not(:focus-visible),
-.email-btn:focus:not(:focus-visible) {
+.theme-slider {
+    width: 130px;
+    height: 5px;
+    border-radius: 3px;
+    appearance: none;
+    background: linear-gradient(90deg, #222, #23273a, #66b3ff, #ffe156, #23273a, #222);
     outline: none;
+    transition: background .27s;
+    margin-right: 0.8em;
+}
+
+.theme-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: var(--primary);
+    border: 2.5px solid #fff;
+    box-shadow: 0 2px 8px #23273a33;
+    cursor: pointer;
+    transition: background .23s, border .23s;
+}
+
+.theme-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--primary);
+    border: 2.5px solid #fff;
+    box-shadow: 0 2px 8px #23273a33;
+    cursor: pointer;
+    transition: background .23s, border .23s;
+}
+
+.theme-slider::-ms-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--primary);
+    border: 2.5px solid #fff;
+    box-shadow: 0 2px 8px #23273a33;
+    cursor: pointer;
+    transition: background .23s, border .23s;
+}
+
+.theme-slider:focus {
+    outline: none;
+}
+
+.slider-color-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    margin-left: 0.4em;
+    border: 2px solid #fff;
+    background: var(--primary);
+    box-shadow: 0 2px 8px #23273a33;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@media (max-width: 700px) {
+    .theme-slider-wrap {
+        top: 85px;
+        right: 8vw;
+    }
 }
