@@ -940,3 +940,31 @@ footer {
     }
 }
 
+
+@media (max-width: 700px) {
+    .skills-list {
+        gap: 0.5em;
+        padding: 0.5em 0.25em;
+    }
+
+    .skill-card {
+        min-height: 48px;
+        font-size: 0.8em;
+        padding: 0.7em 1em;
+        border-radius: 18px;
+        margin-bottom: 0.2em;
+        display: flex;
+    }
+
+    .skill-card.active {
+        min-height: 90px;
+        border: 2px solid #66b3ff;
+        box-shadow: 0 4px 18px #3486eb44;
+    }
+
+    .skill-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 1.3em;
+    }
+}
