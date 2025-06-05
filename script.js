@@ -6,6 +6,29 @@ const pages = {
     projects: document.getElementById('projects-page'),
     contact: document.getElementById('contact-page')
 };
+
+// === Menu Toggle ===
+const menuButton = document.querySelector('.menu-container');
+const sidebarNav = document.getElementById('sidebar-nav');
+
+menuButton.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent click from bubbling to document
+    sidebarNav.classList.toggle('activate');
+});
+
+// Close sidebar when clicking outside
+document.addEventListener('click', (e) => {
+    // Check if click is outside both the sidebar and menu button
+    if (!sidebarNav.contains(e.target) && !menuButton.contains(e.target)) {
+        sidebarNav.classList.remove('activate');
+    }
+});
+
+// Prevent clicks inside sidebar from closing it
+sidebarNav.addEventListener('click', (e) => {
+    e.stopPropagation();
+});
+
 function showPage(page) {
     Object.entries(pages).forEach(([key, el]) => {
         if (key === page) {
@@ -42,14 +65,13 @@ document.addEventListener('keydown', e => {
 });
 
 // === Sidebar hover/collapse/expand ===
-const sidebarNav = document.getElementById('sidebar-nav');
-function isMobile() { return window.innerWidth < 720; }
-function updateSidebarState() {
-    if (isMobile()) sidebarNav.classList.add('expanded');
-    else sidebarNav.classList.remove('expanded');
-}
-window.addEventListener('resize', updateSidebarState);
-updateSidebarState();
+// function isMobile() { return window.innerWidth < 720; }
+// function updateSidebarState() {
+//     if (isMobile()) sidebarNav.classList.add('expanded');
+//     else sidebarNav.classList.remove('expanded');
+// }
+// window.addEventListener('resize', updateSidebarState);
+// updateSidebarState();
 
 // === Skills: expandable ===
 document.querySelectorAll('.skill-card').forEach(card => {
